@@ -1,0 +1,2235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naa's Luxe Glam</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose: #e8a4b0;
+    --blush: #f7dde4;
+    --deep-rose: #c4637a;
+    --gold: #c9a96e;
+    --gold-light: #f0ddb8;
+    --cream: #fdf6f0;
+    --dark: #2a1a1f;
+    --mid: #7a4f5a;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  header {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    overflow: hidden;
+    background: linear-gradient(145deg, #fff0f4 0%, #fdf6f0 40%, #fef9f0 100%);
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 10% 20%, rgba(232,164,176,0.25) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 90% 80%, rgba(201,169,110,0.18) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 50% at 50% 50%, rgba(247,221,228,0.3) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-petals {
+    position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+  }
+  .petal {
+    position: absolute;
+    border-radius: 50% 0 50% 0;
+    opacity: 0.12;
+    animation: float linear infinite;
+  }
+  .petal:nth-child(1)  { width:18px; height:28px; background:var(--rose); top:-5%; left:10%; animation-duration:14s; animation-delay:0s; }
+  .petal:nth-child(2)  { width:12px; height:20px; background:var(--gold); top:-5%; left:25%; animation-duration:18s; animation-delay:3s; }
+  .petal:nth-child(3)  { width:22px; height:32px; background:var(--deep-rose); top:-5%; left:45%; animation-duration:12s; animation-delay:1s; }
+  .petal:nth-child(4)  { width:14px; height:22px; background:var(--rose); top:-5%; left:65%; animation-duration:16s; animation-delay:5s; }
+  .petal:nth-child(5)  { width:10px; height:18px; background:var(--gold); top:-5%; left:80%; animation-duration:20s; animation-delay:2s; }
+  .petal:nth-child(6)  { width:20px; height:30px; background:var(--rose); top:-5%; left:90%; animation-duration:15s; animation-delay:7s; }
+
+  @keyframes float {
+    0%   { transform: translateY(0) rotate(0deg); opacity: 0.12; }
+    10%  { opacity: 0.18; }
+    90%  { opacity: 0.15; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
+
+  .logo-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: linear-gradient(135deg, var(--deep-rose), var(--gold));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; margin-bottom: 1.2rem;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 8vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--dark);
+    animation: fadeUp 0.9s ease 0.1s both;
+  }
+  header h1 em {
+    font-style: italic;
+    background: linear-gradient(135deg, var(--deep-rose) 0%, var(--gold) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+
+  header p.tagline {
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    color: var(--mid);
+    font-weight: 300;
+    max-width: 480px;
+    margin: 1.2rem auto 2.5rem;
+    line-height: 1.7;
+    animation: fadeUp 1s ease 0.2s both;
+  }
+
+  .hero-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+    animation: fadeUp 1s ease 0.3s both;
+  }
+
+  .btn-primary {
+    padding: 0.85rem 2.2rem;
+    background: linear-gradient(135deg, var(--deep-rose), #b85a71);
+    color: #fff;
+    border: none; border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem; font-weight: 500;
+    cursor: pointer; text-decoration: none;
+    box-shadow: 0 8px 28px rgba(196,99,122,0.35);
+    transition: all 0.3s ease;
+    letter-spacing: 0.03em;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(196,99,122,0.45); }
+
+  .btn-outline {
+    padding: 0.85rem 2.2rem;
+    background: transparent;
+    color: var(--deep-rose);
+    border: 1.5px solid var(--rose);
+    border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem; font-weight: 500;
+    cursor: pointer; text-decoration: none;
+    transition: all 0.3s ease;
+    letter-spacing: 0.03em;
+  }
+  .btn-outline:hover { background: var(--blush); border-color: var(--deep-rose); }
+
+  .scroll-indicator {
+    position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+    opacity: 0.5; animation: bounce 2s infinite;
+  }
+  .scroll-indicator span { font-size: 0.7rem; color: var(--mid); letter-spacing: 0.1em; text-transform: uppercase; }
+  .scroll-arrow { width: 1px; height: 28px; background: linear-gradient(to bottom, var(--rose), transparent); }
+
+  @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 2rem;
+    background: rgba(253,246,240,0.92);
+    border-bottom: 1px solid rgba(232,164,176,0.2);
+    transition: all 0.3s;
+  }
+  nav::before {
+    content: '';
+    position: absolute; inset: 0; z-index: -1;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    pointer-events: none;
+  }
+  .nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 600;
+    background: linear-gradient(135deg, var(--deep-rose), var(--gold));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    text-decoration: none;
+    position: relative; z-index: 1;
+  }
+  /* Desktop nav links (inline in nav bar) */
+  .nav-links-desktop {
+    display: flex; gap: 2rem; list-style: none;
+    position: relative; z-index: 1;
+  }
+  .nav-links-desktop a {
+    font-size: 0.85rem; color: var(--mid); text-decoration: none;
+    font-weight: 500; letter-spacing: 0.05em; transition: color 0.2s;
+  }
+  .nav-links-desktop a:hover { color: var(--deep-rose); }
+
+  /* Mobile drawer — lives OUTSIDE <nav> so no stacking-context trap */
+  .mobile-drawer {
+    position: fixed;
+    top: 0; right: -100%; bottom: 0;
+    width: 75vw; max-width: 280px;
+    background: #ffffff;
+    border-left: 4px solid var(--deep-rose);
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1rem 2rem 3rem;
+    box-shadow: -10px 0 40px rgba(42,26,31,0.3);
+    transition: right 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+  }
+  .mobile-drawer.open {
+    right: 0;
+    pointer-events: all;
+  }
+  .nav-links-mobile {
+    list-style: none; width: 100%; padding: 0; margin: 0;
+  }
+  .nav-links-mobile li {
+    width: 100%;
+    border-bottom: 1px solid #f0d0d8;
+  }
+  .nav-links-mobile li:last-child { border-bottom: none; }
+  .nav-links-mobile a {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a0a0f;
+    padding: 1rem 0.2rem;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    transition: color 0.2s, padding-left 0.2s;
+    cursor: pointer;
+  }
+  .nav-links-mobile a:hover {
+    color: var(--deep-rose);
+    padding-left: 0.8rem;
+  }
+
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    cursor: pointer; background: none; border: none; padding: 4px;
+    z-index: 1; position: relative;
+  }
+  .hamburger span {
+    display: block; width: 26px; height: 2px;
+    background: var(--dark); border-radius: 2px;
+    transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+    transform-origin: center;
+  }
+  .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── SECTIONS ── */
+  section { padding: 5rem 1.5rem; max-width: 1100px; margin: 0 auto; }
+  section.full { max-width: 100%; padding: 5rem 0; }
+
+  [id] { scroll-margin-top: 80px; }
+
+  .section-label {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 300; line-height: 1.15;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+  }
+  .section-title em { font-style: italic; color: var(--deep-rose); }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+    align-items: center; max-width: 1100px; margin: 0 auto; padding: 5rem 2rem;
+  }
+  .about-visual { position: relative; }
+  .about-card {
+    background: linear-gradient(145deg, #fff5f7, #fff8f0);
+    border: 1px solid var(--blush);
+    border-radius: 24px;
+    padding: 3rem 2.5rem;
+    position: relative; overflow: hidden;
+  }
+  .about-card::before {
+    content: '✦';
+    position: absolute; top: -1.5rem; right: 2rem;
+    font-size: 5rem; color: var(--blush); line-height: 1;
+  }
+  .about-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--deep-rose), var(--gold));
+  }
+  .about-stat { display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem; font-weight: 600;
+    background: linear-gradient(135deg, var(--deep-rose), var(--gold));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    line-height: 1;
+  }
+  .stat-label { font-size: 0.75rem; color: var(--mid); letter-spacing: 0.08em; margin-top: 0.2rem; }
+  .about-text p { color: var(--mid); line-height: 1.8; font-size: 0.95rem; margin-bottom: 1rem; }
+
+  /* ── SERVICES ── */
+  .services-bg {
+    background: linear-gradient(160deg, #fff0f4 0%, #fdf6f0 100%);
+    padding: 5rem 1.5rem;
+  }
+  .services-inner { max-width: 1100px; margin: 0 auto; }
+  .services-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .service-feature-card {
+    background: #fff;
+    border: 1px solid rgba(232,164,176,0.3);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.35s ease;
+    position: relative; overflow: hidden;
+  }
+  .service-feature-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--deep-rose), var(--gold));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+  .service-feature-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(196,99,122,0.12); border-color: var(--rose); }
+  .service-feature-card:hover::after { transform: scaleX(1); }
+  .service-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+  .service-feature-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; font-weight: 600; color: var(--dark); margin-bottom: 0.5rem;
+  }
+  .service-feature-card p { font-size: 0.82rem; color: var(--mid); line-height: 1.55; }
+  .service-tag {
+    display: inline-block; margin-top: 0.8rem;
+    background: var(--blush); color: var(--deep-rose);
+    font-size: 0.7rem; padding: 0.25rem 0.8rem; border-radius: 50px;
+    font-weight: 500; letter-spacing: 0.05em;
+  }
+
+  /* ── GALLERY ── */
+  .gallery-bg { padding: 5rem 1.5rem; background: var(--cream); }
+  .gallery-inner { max-width: 1200px; margin: 0 auto; }
+
+  .iso-filters {
+    display: flex; flex-wrap: wrap; gap: 0.6rem;
+    justify-content: center; margin: 2rem 0 2.5rem;
+  }
+  .iso-btn {
+    padding: 0.5rem 1.3rem; border-radius: 50px;
+    border: 1.5px solid rgba(232,164,176,0.5);
+    background: transparent; color: var(--mid);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem; font-weight: 500;
+    cursor: pointer; letter-spacing: 0.05em; transition: all 0.25s;
+  }
+  .iso-btn:hover { border-color: var(--rose); color: var(--deep-rose); background: var(--blush); }
+  .iso-btn.active {
+    background: linear-gradient(135deg, var(--deep-rose), #b85a71);
+    color: #fff; border-color: transparent;
+    box-shadow: 0 4px 16px rgba(196,99,122,0.3);
+  }
+
+  .iso-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.2rem;
+  }
+  .iso-item {
+    border-radius: 18px; overflow: hidden;
+    background: #fff;
+    border: 1px solid rgba(232,164,176,0.25);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    transition: all 0.35s ease; position: relative;
+  }
+  .iso-item:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(196,99,122,0.15); }
+  .iso-item.hidden { display: none; }
+
+  .iso-img-wrap {
+    position: relative; width: 100%; padding-top: 100%;
+    background: linear-gradient(145deg, #fff5f7, #fdf6f0);
+    overflow: hidden; cursor: pointer;
+  }
+  .iso-item[data-ratio="tall"]  .iso-img-wrap { padding-top: 130%; }
+  .iso-item[data-ratio="wide"]  .iso-img-wrap { padding-top: 70%; }
+
+  .iso-img-wrap img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.45s ease;
+  }
+  .iso-item:hover .iso-img-wrap img { transform: scale(1.05); }
+
+  .iso-upload-placeholder {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 0.5rem; cursor: pointer;
+  }
+  .iso-upload-placeholder svg { width: 32px; height: 32px; color: var(--rose); opacity: 0.7; }
+  .iso-upload-placeholder span { font-size: 0.75rem; color: var(--mid); opacity: 0.7; letter-spacing: 0.05em; text-align: center; padding: 0 1rem; }
+  .iso-upload-placeholder:hover svg, .iso-upload-placeholder:hover span { opacity: 1; }
+  .iso-file-input { display: none; }
+
+  .iso-info { padding: 1rem 1.2rem 1.2rem; }
+  .iso-cat-tag {
+    display: inline-block;
+    background: var(--blush); color: var(--deep-rose);
+    font-size: 0.68rem; padding: 0.2rem 0.7rem; border-radius: 50px;
+    font-weight: 500; letter-spacing: 0.06em; margin-bottom: 0.4rem;
+  }
+  .iso-title { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600; color: var(--dark); margin-bottom: 0.25rem; line-height: 1.3; }
+  .iso-desc { font-size: 0.78rem; color: var(--mid); line-height: 1.5; }
+
+  .iso-hover-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(42,26,31,0.75) 0%, transparent 55%);
+    opacity: 0; transition: opacity 0.3s;
+    display: flex; align-items: flex-end; padding: 1rem;
+  }
+  .iso-item:hover .iso-hover-overlay { opacity: 1; }
+  .iso-order-btn {
+    width: 100%; padding: 0.55rem;
+    background: linear-gradient(135deg, var(--deep-rose), #b85a71);
+    color: #fff; border: none; border-radius: 50px;
+    font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 500;
+    cursor: pointer; letter-spacing: 0.04em; transition: box-shadow 0.2s;
+  }
+  .iso-order-btn:hover { box-shadow: 0 4px 16px rgba(196,99,122,0.5); }
+
+  @media (max-width: 768px) {
+    .iso-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+    .services-cards-grid { grid-template-columns: 1fr; }
+    .iso-filters { gap: 0.4rem; }
+    .iso-btn { font-size: 0.75rem; padding: 0.45rem 1rem; }
+  }
+  @media (max-width: 420px) {
+    .iso-grid { grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+  }
+
+  /* ── ORDER FORM ── */
+  .order-section {
+    background: linear-gradient(145deg, #2a1a1f 0%, #3d2028 100%);
+    padding: 5rem 1.5rem; position: relative; overflow: hidden;
+  }
+  .order-section::before {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,169,110,0.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .order-section::after {
+    content: ''; position: absolute; bottom: -30%; left: -10%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(232,164,176,0.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .order-inner { max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
+  .order-inner .section-label { color: var(--gold-light); }
+  .order-inner .section-title { color: #fff; }
+  .order-inner .section-title em { color: var(--rose); }
+
+  .order-form { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.2rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label { font-size: 0.78rem; color: rgba(255,255,255,0.6); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
+  .form-group input, .form-group select, .form-group textarea {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(232,164,176,0.25);
+    border-radius: 12px; padding: 0.85rem 1.1rem;
+    color: #fff; font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem; transition: border-color 0.25s, background 0.25s;
+    outline: none; width: 100%;
+  }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--rose); background: rgba(255,255,255,0.12); }
+  .form-group select option { background: #2a1a1f; color: #fff; }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+
+  .form-submit {
+    margin-top: 0.5rem; padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--deep-rose), #b85a71);
+    color: #fff; border: none; border-radius: 50px;
+    font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 500;
+    cursor: pointer; box-shadow: 0 8px 28px rgba(196,99,122,0.4);
+    transition: all 0.3s;
+    display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+    width: 100%;
+  }
+  .form-submit:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(196,99,122,0.5); }
+  .form-submit svg { width: 18px; height: 18px; }
+
+  /* Success modal */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 999;
+    background: rgba(42,26,31,0.85); backdrop-filter: blur(6px);
+    align-items: center; justify-content: center; padding: 1.5rem;
+  }
+  .modal-overlay.active { display: flex; }
+  .modal-box {
+    background: linear-gradient(145deg, #fff5f7, #fffbf5);
+    border-radius: 28px; padding: 3rem 2.5rem;
+    max-width: 420px; width: 100%; text-align: center; position: relative;
+    animation: popIn 0.4s cubic-bezier(0.34,1.56,0.64,1) both;
+  }
+  @keyframes popIn { from{opacity:0;transform:scale(0.85)} to{opacity:1;transform:scale(1)} }
+  .modal-icon { font-size: 4rem; margin-bottom: 1rem; }
+  .modal-box h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 600; color: var(--dark); margin-bottom: 0.7rem; }
+  .modal-box p { color: var(--mid); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.5rem; }
+  .modal-close {
+    padding: 0.75rem 2.5rem;
+    background: linear-gradient(135deg, var(--deep-rose), #b85a71);
+    color: #fff; border: none; border-radius: 50px;
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 500;
+    cursor: pointer; transition: all 0.3s;
+  }
+  .modal-close:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(196,99,122,0.4); }
+
+  /* ── SOCIAL / CONNECT ── */
+  .connect-section { text-align: center; padding: 5rem 1.5rem; }
+  .social-grid { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-top: 3rem; }
+  .social-card {
+    display: flex; flex-direction: column; align-items: center; gap: 0.7rem;
+    padding: 1.8rem 2rem; background: #fff;
+    border: 1px solid var(--blush); border-radius: 20px;
+    text-decoration: none; transition: all 0.3s; min-width: 120px;
+  }
+  .social-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(196,99,122,0.15); }
+  .social-card svg { width: 32px; height: 32px; }
+  .social-card span { font-size: 0.78rem; color: var(--mid); font-weight: 500; letter-spacing: 0.05em; }
+  .sc-wa { border-color: rgba(37,211,102,0.3); }
+  .sc-wa:hover { border-color: #25d366; }
+  .sc-wa svg { color: #25d366; }
+  .sc-ig { border-color: rgba(225,48,108,0.3); }
+  .sc-ig:hover { border-color: #e1306c; }
+  .sc-ig svg { color: #e1306c; }
+  .sc-snap { border-color: rgba(255,252,0,0.4); }
+  .sc-snap:hover { border-color: #fffc00; background: #fffde6; }
+  .sc-snap svg { color: #c8a800; }
+  .sc-tt { border-color: rgba(0,0,0,0.15); }
+  .sc-tt:hover { border-color: #000; }
+  .sc-tt svg { color: #000; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark);
+    position: relative;
+    overflow: hidden;
+  }
+  footer::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--deep-rose), var(--gold), var(--rose));
+  }
+  footer::after {
+    content: '';
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse 60% 50% at 10% 80%, rgba(196,99,122,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 60% at 90% 20%, rgba(201,169,110,0.07) 0%, transparent 60%);
+  }
+
+  .footer-main {
+    position: relative; z-index: 1;
+    max-width: 1100px; margin: 0 auto;
+    padding: 4rem 2rem 3rem;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  /* Brand column */
+  .footer-brand-col {}
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.9rem; font-weight: 300; line-height: 1.1;
+    background: linear-gradient(135deg, var(--rose), var(--gold));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 0.8rem; display: inline-block;
+  }
+  .footer-brand em { font-style: italic; }
+  .footer-tagline {
+    font-size: 0.82rem; color: rgba(255,255,255,0.4);
+    line-height: 1.65; max-width: 240px;
+    margin-bottom: 1.4rem;
+  }
+  .footer-badges {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+  }
+  .footer-badge {
+    font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+    font-weight: 600; padding: 0.3rem 0.85rem; border-radius: 50px;
+    border: 1px solid rgba(232,164,176,0.25); color: rgba(255,255,255,0.4);
+  }
+
+  /* Column headings */
+  .footer-col-title {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .footer-col-title::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(to right, rgba(201,169,110,0.35), transparent);
+  }
+
+  /* Nav links */
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+  .footer-links a {
+    font-size: 0.83rem; color: rgba(255,255,255,0.45);
+    text-decoration: none; transition: color 0.2s;
+    display: flex; align-items: center; gap: 0.4rem;
+  }
+  .footer-links a::before { content: '✦'; font-size: 0.5rem; color: var(--rose); opacity: 0.5; }
+  .footer-links a:hover { color: var(--rose); }
+  .footer-links a:hover::before { opacity: 1; }
+
+  /* Contact list */
+  .footer-contact { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+  .footer-contact li {
+    display: flex; align-items: flex-start; gap: 0.6rem;
+    font-size: 0.82rem; color: rgba(255,255,255,0.45); line-height: 1.5;
+  }
+  .footer-contact li .fc-icon { font-size: 0.95rem; margin-top: 1px; flex-shrink: 0; }
+  .footer-contact a { color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
+  .footer-contact a:hover { color: var(--rose); }
+
+  /* Social icons */
+  .footer-socials { display: flex; flex-direction: column; gap: 0.7rem; }
+  .footer-social-link {
+    display: flex; align-items: center; gap: 0.75rem;
+    font-size: 0.82rem; color: rgba(255,255,255,0.45);
+    text-decoration: none; transition: all 0.2s;
+    padding: 0.45rem 0.7rem; border-radius: 10px;
+    border: 1px solid transparent;
+  }
+  .footer-social-link svg { width: 16px; height: 16px; flex-shrink: 0; }
+  .footer-social-link:hover { background: rgba(255,255,255,0.05); border-color: rgba(232,164,176,0.2); color: #fff; }
+  .footer-social-link.wa:hover  { color: #25d366; border-color: rgba(37,211,102,0.3); }
+  .footer-social-link.ig:hover  { color: #f06292; border-color: rgba(240,98,146,0.3); }
+  .footer-social-link.sc:hover  { color: #fffc00; border-color: rgba(255,252,0,0.3); }
+  .footer-social-link.tt:hover  { color: #e0e0e0; border-color: rgba(255,255,255,0.2); }
+
+  /* Divider */
+  .footer-divider-line {
+    position: relative; z-index: 1;
+    max-width: 1100px; margin: 0 auto;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(232,164,176,0.2), rgba(201,169,110,0.2), transparent);
+    border: none;
+  }
+
+  /* Bottom bar */
+  .footer-bottom {
+    position: relative; z-index: 1;
+    max-width: 1100px; margin: 0 auto;
+    padding: 1.5rem 2rem 2rem;
+    display: flex; align-items: center;
+    justify-content: space-between; flex-wrap: wrap; gap: 0.8rem;
+  }
+  .footer-bottom-left { font-size: 0.75rem; color: rgba(255,255,255,0.25); line-height: 1.6; }
+  .footer-bottom-left span { color: rgba(255,255,255,0.15); margin: 0 0.3rem; }
+  .footer-dev {
+    font-size: 0.73rem; color: rgba(255,255,255,0.2);
+    display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; justify-content: flex-end;
+  }
+  .footer-dev a {
+    color: rgba(201,169,110,0.5); text-decoration: none; font-weight: 500;
+    transition: color 0.2s;
+  }
+  .footer-dev a:hover { color: var(--gold); }
+
+  /* ── KAY TECH STUDIOS CREDIT SECTION ── */
+  .footer-dev-section {
+    position: relative; z-index: 1;
+    max-width: 1100px; margin: 0 auto;
+    padding: 2.5rem 2rem;
+    display: flex; align-items: center; gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .footer-dev-logo {
+    flex-shrink: 0;
+    width: 58px; height: 58px; border-radius: 16px;
+    background: linear-gradient(135deg, #0f0f1a, #1a1a2e);
+    border: 1px solid rgba(201,169,110,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4), 0 0 0 1px rgba(201,169,110,0.1);
+    position: relative; overflow: hidden;
+  }
+  .footer-dev-logo::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(201,169,110,0.08), transparent);
+  }
+  .footer-dev-info { flex: 1; min-width: 200px; }
+  .footer-dev-built {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 0.25rem;
+    opacity: 0.7;
+  }
+  .footer-dev-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem; font-weight: 600; line-height: 1.1;
+    background: linear-gradient(135deg, #fff 0%, rgba(201,169,110,0.9) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 0.3rem;
+  }
+  .footer-dev-motto {
+    font-size: 0.76rem; color: rgba(255,255,255,0.28);
+    font-style: italic; letter-spacing: 0.02em;
+  }
+  .footer-dev-links {
+    display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center;
+  }
+  .footer-dev-link {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-size: 0.76rem; text-decoration: none;
+    padding: 0.4rem 1rem; border-radius: 50px;
+    transition: all 0.25s; font-weight: 500; letter-spacing: 0.02em;
+    word-break: break-all;
+  }
+  .footer-dev-link.primary {
+    background: linear-gradient(135deg, rgba(201,169,110,0.15), rgba(201,169,110,0.08));
+    color: rgba(201,169,110,0.85);
+    border: 1px solid rgba(201,169,110,0.25);
+  }
+  .footer-dev-link.primary:hover {
+    background: linear-gradient(135deg, rgba(201,169,110,0.28), rgba(201,169,110,0.15));
+    color: var(--gold); border-color: rgba(201,169,110,0.5);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(201,169,110,0.15);
+  }
+  .footer-dev-link.secondary {
+    color: rgba(255,255,255,0.28);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-dev-link.secondary:hover {
+    color: rgba(255,255,255,0.6); border-color: rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.04);
+  }
+  .footer-dev-divider {
+    position: relative; z-index: 1;
+    max-width: 1100px; margin: 0 auto;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(201,169,110,0.12), transparent);
+    border: none;
+  }
+
+  /* Responsive footer */
+  @media (max-width: 900px) {
+    .footer-main {
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+    .footer-brand-col { grid-column: 1 / -1; }
+    .footer-tagline { max-width: 100%; }
+  }
+  @media (max-width: 560px) {
+    .footer-main { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem 2rem; }
+    .footer-brand-col { grid-column: auto; }
+    .footer-bottom { flex-direction: column; text-align: center; padding: 1.2rem 1.5rem; align-items: center; }
+    .footer-dev-section { gap: 1.2rem; padding: 2rem 1.5rem; flex-direction: column; }
+    .footer-dev-links { flex-direction: column; gap: 0.5rem; width: 100%; }
+    .footer-dev-link { width: 100%; justify-content: flex-start; word-break: break-word; }
+    .footer-dev-link.primary,
+    .footer-dev-link.secondary { border-radius: 10px; }
+  }
+  /* ── NAV OVERLAY (dimmed backdrop) ── */
+  .nav-overlay {
+    display: none; position: fixed; inset: 0;
+    background: transparent; z-index: 9998;
+  }
+  .nav-overlay.active { display: block; }
+
+  /* Hide close button on desktop (must come BEFORE the media query override) */
+  .nav-close-btn { display: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.2rem; }
+    .nav-links-desktop { display: none; }
+
+    /* ── Close button inside drawer ── */
+    .nav-close-btn {
+      display: flex;
+      position: absolute;
+      top: 1.2rem; right: 1.2rem;
+      width: 40px; height: 40px;
+      align-items: center; justify-content: center;
+      background: var(--blush);
+      border: 1.5px solid var(--rose);
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      color: var(--deep-rose);
+      transition: all 0.2s;
+      z-index: 100000;
+      line-height: 1;
+    }
+    .nav-close-btn:hover {
+      background: var(--deep-rose);
+      color: #fff;
+      transform: rotate(90deg);
+    }
+
+    .hamburger { display: flex !important; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 1.5rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .social-grid { gap: 1rem; }
+    .social-card { min-width: 90px; padding: 1.4rem 1.2rem; }
+    .order-inner { padding: 0 0.5rem; }
+    .form-section-title { font-size: 0.8rem; }
+  }
+
+  /* Divider ornament */
+  .ornament {
+    text-align: center; margin: 1rem 0;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--rose); font-size: 1.2rem; letter-spacing: 1rem; opacity: 0.6;
+  }
+
+  /* ── FORM SECTIONS ── */
+  .form-section { margin-bottom: 0.5rem; }
+  .form-section-title {
+    display: flex; align-items: center; gap: 0.6rem;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 1rem; margin-top: 1.8rem;
+  }
+  .form-section-title::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(to right, rgba(201,169,110,0.4), transparent);
+  }
+
+  .radio-group { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+  .radio-option { flex: 1; min-width: 120px; position: relative; }
+  .radio-option input[type="radio"] { position: absolute; opacity: 0; width: 0; height: 0; }
+  .radio-option label {
+    display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(232,164,176,0.25); border-radius: 12px;
+    cursor: pointer; font-size: 0.82rem; color: rgba(255,255,255,0.65);
+    letter-spacing: 0.03em; transition: all 0.25s; text-align: center;
+    text-transform: none; font-weight: 400;
+  }
+  .radio-option input[type="radio"]:checked + label { background: rgba(196,99,122,0.25); border-color: var(--rose); color: #fff; }
+  .radio-option label:hover { border-color: var(--rose); background: rgba(255,255,255,0.12); }
+
+  /* ── FAKE PRODUCT VISUALS ── */
+  .fake-visual {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 0.6rem;
+  }
+  .fake-visual .fake-emoji {
+    font-size: 3.8rem; line-height: 1;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));
+    animation: floatEmoji 3s ease-in-out infinite;
+  }
+  .fake-visual .fake-label {
+    font-size: 0.68rem; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+    background: rgba(0,0,0,0.2);
+    padding: 0.25rem 0.8rem; border-radius: 50px;
+    backdrop-filter: blur(4px);
+  }
+  @keyframes floatEmoji { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+  .iso-item:nth-child(2) .fake-emoji { animation-delay: 0.3s; }
+  .iso-item:nth-child(3) .fake-emoji { animation-delay: 0.6s; }
+  .iso-item:nth-child(4) .fake-emoji { animation-delay: 0.9s; }
+  .iso-item:nth-child(5) .fake-emoji { animation-delay: 0.2s; }
+  .iso-item:nth-child(6) .fake-emoji { animation-delay: 0.5s; }
+  .iso-item:nth-child(7) .fake-emoji { animation-delay: 0.8s; }
+  .iso-item:nth-child(8) .fake-emoji { animation-delay: 0.4s; }
+  .iso-item:nth-child(9) .fake-emoji { animation-delay: 0.7s; }
+  .iso-img-wrap.has-image .fake-visual { display: none; }
+  .iso-img-wrap.has-image .iso-upload-placeholder { display: none; }
+
+  /* ── CART SYSTEM ── */
+  .cart-nav-btn {
+    position: relative; background: none; border: none; cursor: pointer;
+    padding: 0.4rem; display: flex; align-items: center; justify-content: center;
+    z-index: 1;
+  }
+  .cart-nav-icon {
+    width: 26px; height: 26px; color: var(--deep-rose);
+    transition: transform 0.2s;
+  }
+  .cart-nav-btn:hover .cart-nav-icon { transform: scale(1.15); }
+  .cart-badge {
+    position: absolute; top: -2px; right: -4px;
+    min-width: 18px; height: 18px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--deep-rose), #b85a71);
+    color: #fff; font-size: 0.65rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    padding: 0 3px;
+    box-shadow: 0 2px 8px rgba(196,99,122,0.5);
+    opacity: 0; transform: scale(0);
+    transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1);
+    pointer-events: none;
+  }
+  .cart-badge.visible { opacity: 1; transform: scale(1); }
+
+  /* Cart Drawer */
+  .cart-overlay {
+    display: none; position: fixed; inset: 0; z-index: 99990;
+    background: rgba(42,26,31,0.6); backdrop-filter: blur(4px);
+  }
+  .cart-overlay.active { display: block; }
+  .cart-drawer {
+    position: fixed; top: 0; right: -420px; bottom: 0;
+    width: 420px; max-width: 100vw;
+    background: #fff;
+    border-left: 3px solid var(--rose);
+    z-index: 99991;
+    display: flex; flex-direction: column;
+    transition: right 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -16px 0 60px rgba(42,26,31,0.2);
+  }
+  .cart-drawer.open { right: 0; }
+  .cart-drawer-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem 1.6rem;
+    border-bottom: 1px solid var(--blush);
+    background: linear-gradient(135deg, #fff5f7, #fffbf5);
+    flex-shrink: 0;
+  }
+  .cart-drawer-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 600; color: var(--dark);
+  }
+  .cart-drawer-title span { color: var(--deep-rose); font-style: italic; }
+  .cart-close-btn {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--blush); border: 1.5px solid var(--rose);
+    color: var(--deep-rose); font-size: 1rem;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+  }
+  .cart-close-btn:hover { background: var(--deep-rose); color: #fff; transform: rotate(90deg); }
+  .cart-items-list {
+    flex: 1; overflow-y: auto; padding: 1rem 1.6rem;
+  }
+  .cart-items-list::-webkit-scrollbar { width: 4px; }
+  .cart-items-list::-webkit-scrollbar-thumb { background: var(--rose); border-radius: 2px; }
+  .cart-empty {
+    text-align: center; padding: 4rem 1rem;
+    color: var(--mid); font-size: 0.9rem; line-height: 1.8;
+  }
+  .cart-empty-icon { font-size: 4rem; margin-bottom: 1rem; display: block; opacity: 0.5; }
+  .cart-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 1rem 0; border-bottom: 1px solid rgba(232,164,176,0.25);
+    animation: fadeUp 0.3s ease both;
+  }
+  .cart-item:last-child { border-bottom: none; }
+  .cart-item-img {
+    width: 68px; height: 68px; border-radius: 12px; object-fit: cover;
+    flex-shrink: 0; background: linear-gradient(145deg, #fff5f7, #fdf6f0);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem; border: 1px solid var(--blush);
+  }
+  .cart-item-info { flex: 1; min-width: 0; }
+  .cart-item-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem; font-weight: 600; color: var(--dark);
+    line-height: 1.3; margin-bottom: 0.2rem;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .cart-item-cat {
+    font-size: 0.7rem; color: var(--mid); letter-spacing: 0.08em;
+    text-transform: uppercase; margin-bottom: 0.5rem;
+  }
+  .cart-qty-row {
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .cart-qty-btn {
+    width: 26px; height: 26px; border-radius: 50%;
+    border: 1.5px solid var(--rose); background: transparent;
+    color: var(--deep-rose); font-size: 1rem; font-weight: 600;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s; line-height: 1;
+  }
+  .cart-qty-btn:hover { background: var(--deep-rose); color: #fff; border-color: var(--deep-rose); }
+  .cart-qty-val {
+    min-width: 28px; text-align: center; font-weight: 600;
+    font-size: 0.9rem; color: var(--dark);
+  }
+  .cart-item-remove {
+    background: none; border: none; cursor: pointer;
+    color: rgba(196,99,122,0.4); font-size: 1.1rem;
+    transition: color 0.2s; padding: 2px; align-self: flex-start; margin-top: 2px;
+  }
+  .cart-item-remove:hover { color: var(--deep-rose); }
+  .cart-footer {
+    padding: 1.4rem 1.6rem;
+    border-top: 1px solid var(--blush);
+    background: linear-gradient(135deg, #fff5f7, #fffbf5);
+    flex-shrink: 0;
+  }
+  .cart-summary-row {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--mid);
+  }
+  .cart-summary-row.total {
+    font-size: 1rem; font-weight: 600; color: var(--dark);
+    padding-top: 0.6rem; border-top: 1px dashed rgba(232,164,176,0.5);
+    margin-top: 0.5rem;
+  }
+  .cart-summary-row.total .val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; color: var(--deep-rose);
+  }
+  .cart-checkout-btn {
+    width: 100%; padding: 0.9rem 1.5rem; margin-top: 1rem;
+    background: linear-gradient(135deg, var(--deep-rose), #b85a71);
+    color: #fff; border: none; border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.92rem; font-weight: 500;
+    cursor: pointer; letter-spacing: 0.03em;
+    box-shadow: 0 8px 28px rgba(196,99,122,0.35);
+    transition: all 0.3s;
+    display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+  }
+  .cart-checkout-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(196,99,122,0.45); }
+  .cart-checkout-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+  .cart-clear-btn {
+    width: 100%; padding: 0.6rem; margin-top: 0.5rem;
+    background: transparent; color: rgba(196,99,122,0.6);
+    border: 1px solid rgba(232,164,176,0.5); border-radius: 50px;
+    font-size: 0.8rem; cursor: pointer; transition: all 0.2s;
+  }
+  .cart-clear-btn:hover { background: var(--blush); color: var(--deep-rose); }
+
+  /* Add to Cart button on gallery cards */
+  .iso-order-btn {
+    background: linear-gradient(135deg, var(--deep-rose), #b85a71) !important;
+  }
+  .iso-order-btn.added {
+    background: linear-gradient(135deg, #25a244, #1a7a33) !important;
+  }
+
+  /* Cart toast notification */
+  .cart-toast {
+    position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(20px);
+    background: linear-gradient(135deg, var(--dark), #3d1f28);
+    color: #fff; padding: 0.75rem 1.5rem; border-radius: 50px;
+    font-size: 0.85rem; font-weight: 500; z-index: 999999;
+    box-shadow: 0 8px 32px rgba(42,26,31,0.4);
+    opacity: 0; transition: all 0.3s ease; pointer-events: none;
+    white-space: nowrap; display: flex; align-items: center; gap: 0.5rem;
+    border: 1px solid rgba(232,164,176,0.3);
+  }
+  .cart-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">Naa's Luxe Glam</a>
+  <!-- Desktop: links shown inline inside nav -->
+  <ul class="nav-links-desktop">
+    <li><a href="#about">About</a></li>
+    <li><a href="#products">Shop</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#order">Order</a></li>
+    <li><a href="#connect">Connect</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:0.6rem;position:relative;z-index:1;">
+    <button class="cart-nav-btn" id="cartNavBtn" aria-label="View cart" onclick="openCart()">
+      <svg class="cart-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+      </svg>
+      <span class="cart-badge" id="cartBadge">0</span>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer: lives OUTSIDE <nav> to avoid stacking-context trap -->
+<div class="mobile-drawer" id="mobileDrawer">
+  <button class="nav-close-btn" id="navCloseBtn" aria-label="Close menu">✕</button>
+  <ul class="nav-links-mobile">
+    <li><a href="#about" class="drawer-link">About</a></li>
+    <li><a href="#products" class="drawer-link">Shop</a></li>
+    <li><a href="#services" class="drawer-link">Services</a></li>
+    <li><a href="#order" class="drawer-link">Order</a></li>
+    <li><a href="#connect" class="drawer-link">Connect</a></li>
+  </ul>
+</div>
+
+<!-- Dimmed backdrop overlay -->
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- HERO -->
+<header id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-petals">
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+  </div>
+  <div class="logo-badge">✦ Global Imports Hub ✦</div>
+  <h1>Naa's <em>Luxe</em><br>Glam</h1>
+  <p class="tagline">World-class imports — fashion, beauty, home essentials &amp; more, delivered with luxury and care.</p>
+  <div class="hero-cta">
+    <a href="#order" class="btn-primary">Place an Order</a>
+    <a href="#products" class="btn-outline">Explore Products</a>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-arrow"></div>
+    <span>Scroll</span>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<div class="about-grid" id="about">
+  <div class="about-visual">
+    <div class="about-card">
+      <div class="section-label">Our Story</div>
+      <h2 class="section-title">Luxury &amp; <em>Quality</em><br>For Everyone</h2>
+      <div class="about-stat">
+        <div class="stat-item"><div class="stat-num">5+</div><div class="stat-label">Categories</div></div>
+        <div class="stat-item"><div class="stat-num">🌍</div><div class="stat-label">Global Sources</div></div>
+        <div class="stat-item"><div class="stat-num">✦</div><div class="stat-label">Premium Quality</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="about-text">
+    <div class="section-label">About Us</div>
+    <h2 class="section-title">We Bring the <em>World</em><br>To Your Door</h2>
+    <p>At Naa's Luxe Glam, we import and distribute a wide range of premium products from across the globe — combining luxury, style, and everyday essentials for both wholesale and retail customers.</p>
+    <p>Our mission is simple: deliver quality, affordability, and style — whether you're shopping for fashion, household essentials, or beauty products.</p>
+    <a href="#order" class="btn-primary" style="margin-top:1rem; display:inline-block;">Shop With Us</a>
+  </div>
+</div>
+
+<!-- PRODUCTS → ISOTOPE GALLERY -->
+<div class="gallery-bg" id="products">
+  <div class="gallery-inner">
+    <div class="section-label" style="text-align:center">Our Goods</div>
+    <h2 class="section-title" style="text-align:center">Shop Our <em>Products</em></h2>
+    <div class="ornament">✦ ✦ ✦</div>
+
+    <div class="iso-filters">
+      <button class="iso-btn active" data-filter="all">All Items</button>
+      <button class="iso-btn" data-filter="fashion">👗 Fashion</button>
+      <button class="iso-btn" data-filter="accessories">💎 Accessories</button>
+      <button class="iso-btn" data-filter="electronics">📱 Electronics</button>
+      <button class="iso-btn" data-filter="bedroom">🛋️ Bedroom</button>
+      <button class="iso-btn" data-filter="beauty">✨ Beauty</button>
+    </div>
+
+    <div class="iso-grid" id="isoGrid">
+
+      <!-- FASHION -->
+      <div class="iso-item" data-cat="fashion" data-ratio="tall">
+        <div class="iso-img-wrap" onclick="triggerUpload(this)" style="background:linear-gradient(145deg,#f9c6d0,#e8a4b0,#c4637a)">
+          <img src="assets/1.jpg" alt="" class="iso-img" style="display: block;" >
+          <div class="fake-visual"><span class="fake-emoji"></span><span class="fake-label">Fashion</span></div>
+          <div class="iso-upload-placeholder" style="background:rgba(0,0,0,0.25)">
+     
+          </div>
+          <div class="iso-hover-overlay"><button class="iso-order-btn" onclick="orderItem(event,'Floral Wrap Dress')">🛒 Add to Cart</button></div>
+          
+        </div>
+        <div class="iso-info"><span class="iso-cat-tag">Fashion</span><div class="iso-title">White Strappy Block-Heel Sandals </div><div class="iso-desc">Elegant heeled sandals with crisscross straps, available in rose gold and black.</div></div>
+      </div>
+
+      <div class="iso-item" data-cat="fashion" data-ratio="square">
+        <div class="iso-img-wrap" onclick="triggerUpload(this)" style="background:linear-gradient(135deg,#fce4ec,#f48fb1,#e91e8c)">
+          <img src="assets/2.jpg" alt="" class="iso-img" style="display: block;">
+          <div class="fake-visual"><span class="fake-emoji"></span><span class="fake-label">Fashion</span></div>
+          <div class="iso-upload-placeholder" style="background:rgba(0,0,0,0.25)">
+            
+          </div>
+          <div class="iso-hover-overlay"><button class="iso-order-btn" onclick="orderItem(event,'Heeled Sandals')">🛒 Add to Cart</button></div>
+          
+        </div>
+        <div class="iso-info"><span class="iso-cat-tag">Fashion</span><div class="iso-title">Argyle Sleeveless Sweater with Pearl Strap Bag</div><div class="iso-desc">Stylish black-and-white argyle knit vest paired with a chic pearl-strap handbag.</div></div>
+      </div>
+
+      <div class="iso-item" data-cat="fashion" data-ratio="square">
+        <div class="iso-img-wrap" onclick="triggerUpload(this)" style="background:linear-gradient(135deg,#2a1a1f,#7a4f5a,#c4637a)">
+          <img src="assets/4.jpg" alt="" class="iso-img" style="display: block;">
+          <div class="fake-visual"><span class="fake-emoji"></span><span class="fake-label">Fashion</span></div>
+          <div class="iso-upload-placeholder" style="background:rgba(0,0,0,0.25)">
+            
+          </div>
+          <div class="iso-hover-overlay"><button class="iso-order-btn" onclick="orderItem(event,'Oversized Blazer')">🛒 Add to Cart</button></div>
+          
+        </div>
+        <div class="iso-info"><span class="iso-cat-tag">Fashion</span><div class="iso-title">Black Timberland-Style Boots</div><div class="iso-desc">Durable lace-up boots with padded collars and rugged soles for everyday wear.</div></div>
+      </div>
+
+
+       <div class="iso-item" data-cat="fashion" data-ratio="square">
+        <div class="iso-img-wrap" onclick="triggerUpload(this)" style="background:linear-gradient(135deg,#2a1a1f,#7a4f5a,#c4637a)">
+          <img src="assets/5.jpg" alt="" class="iso-img" style="display: block;">
+          <div class="fake-visual"><span class="fake-emoji"></span><span class="fake-label">Fashion</span></div>
+          <div class="iso-upload-placeholder" style="background:rgba(0,0,0,0.25)">
+            
+          </div>
+          <div class="iso-hover-overlay"><button class="iso-order-btn" onclick="orderItem(event,'Oversized Blazer')">🛒 Add to Cart</button></div>
+          
+        </div>
+        <div class="iso-info"><span class="iso-cat-tag">Fashion</span><div class="iso-title">White Sneakers with Black Swoosh Design  </div><div class="iso-desc">Trendy streetwear sneakers featuring a bold swoosh-style accent.</div></div>
+      </div>
+
+       <div class="iso-item" data-cat="fashion" data-ratio="square">
+        <div class="iso-img-wrap" onclick="triggerUpload(this)" style="background:linear-gradient(135deg,#2a1a1f,#7a4f5a,#c4637a)">
+          <img src="assets/7.jpg" alt="" class="iso-img" style="display: block;">
+          <div class="fake-visual"><span class="fake-emoji"></span><span class="fake-label">Fashion</span></div>
+          <div class="iso-upload-placeholder" style="background:rgba(0,0,0,0.25)">
+            
+          </div>
+          <div class="iso-hover-overlay"><button class="iso-order-btn" onclick="orderItem(event,'Oversized Blazer')">🛒 Add to Cart</button></div>
+          
+        </div>
+        <div class="iso-info"><span class="iso-cat-tag">Fashion</span><div class="iso-title">Black Pleated Mini Skirt with White Crop Top</div><div class="iso-desc">Chic pleated skirt paired with a crop top and boots for a modern look.</div></div>
+      </div>
+
+
+
+       <div class="iso-item" data-cat="fashion" data-ratio="square">
+        <div class="iso-img-wrap" onclick="triggerUpload(this)" style="background:linear-gradient(135deg,#2a1a1f,#7a4f5a,#c4637a)">
+          <img src="assets/9.jpg" alt="" class="iso-img" style="display: block;">
+          <div class="fake-visual"><span class="fake-emoji"></span><span class="fake-label">Fashion</span></div>
+          <div class="iso-upload-placeholder" style="background:rgba(0,0,0,0.25)">
+            
+          </div>
+          <div class="iso-hover-overlay"><button class="iso-order-btn" onclick="orderItem(event,'Oversized Blazer')">🛒 Add to Cart</button></div>
+          
+        </div>
+        <div class="iso-info"><span class="iso-cat-tag">Fashion</span><div class="iso-title">Black & White Jordan Slide Sandals  </div><div class="iso-desc">Comfortable branded slides featuring the iconic Jumpman logo.</div></div>
+      </div>
+
+
+       <div class="iso-item" data-cat="fashion" data-ratio="square">
+        <div class="iso-img-wrap" onclick="triggerUpload(this)" style="background:linear-gradient(135deg,#2a1a1f,#7a4f5a,#c4637a)">
+          <img src="assets/11.jpg" alt="" class="iso-img" style="display: block;">
+          <div class="fake-visual"><span class="fake-emoji"></span><span class="fake-label">Fashion</span></div>
+          <div class="iso-upload-placeholder" style="background:rgba(0,0,0,0.25)">
+            
+          </div>
+          <div class="iso-hover-overlay"><button class="iso-order-btn" onclick="orderItem(event,'Oversized Blazer')">🛒 Add to Cart</button></div>
+          
+        </div>
+        <div class="iso-info"><span class="iso-cat-tag">Fashion</span><div class="iso-title">White & Black Printed Tube Top </div><div class="iso-desc">Stylish strapless top with an abstract artistic print design.</div></div>
+      </div>
+
+
+       <div class="iso-item" data-cat="fashion" data-ratio="square">
+        <div class="iso-img-wrap" onclick="triggerUpload(this)" style="background:linear-gradient(135deg,#2a1a1f,#7a4f5a,#c4637a)">
+          <img src="assets/12.jpg" alt="" class="iso-img" style="display: block;">
+          <div class="fake-visual"><span class="fake-emoji"></span><span class="fake-label">Fashion</span></div>
+          <div class="iso-upload-placeholder" style="background:rgba(0,0,0,0.25)">
+            
+          </div>
+          <div class="iso-hover-overlay"><button class="iso-order-btn" onclick="orderItem(event,'Oversized Blazer')">🛒 Add to Cart</button></div>
+          
+        </div>
+        <div class="iso-info"><span class="iso-cat-tag">Fashion</span><div class="iso-title">White Moncler T-Shirt </div><div class="iso-desc">Classic designer tee with Moncler’s bold logo and emblem.</div></div>
+      </div>
+
+      <!-- ACCESSORIES -->
+      <div class="iso-item" data-cat="accessories" data-ratio="square">
+        <div class="iso-img-wrap" onclick="triggerUpload(this)" style="background:linear-gradient(145deg,#f0ddb8,#c9a96e,#a0782a)">
+          <img src="assets/3.jpg" alt="" class="iso-img" style="display: block;">
+          <div class="fake-visual"><span class="fake-emoji"></span><span class="fake-label">Accessories</span></div>
+          <div class="iso-upload-placeholder" style="background:rgba(0,0,0,0.25)">
+            
+          </div>
+          <div class="iso-hover-overlay"><button class="iso-order-btn" onclick="orderItem(event,'Gold Jewellery Set')">🛒 Add to Cart</button></div>
+          
+        </div>
+        <div class="iso-info"><span class="iso-cat-tag">Accessories</span><div class="iso-title">Blue G-SHOCK Watch with Packaging</div><div class="iso-desc">Rugged digital-analog wristwatch with protective casing and branded box.</div></div>
+      </div>
+
+      <div class="iso-item" data-cat="accessories" data-ratio="tall">
+        <div class="iso-img-wrap" onclick="triggerUpload(this)" style="background:linear-gradient(145deg,#3d2028,#7a4f5a,#c9a96e)">
+          <img src="assets/6.jpg" alt="" class="iso-img" style="display: block;">
+          <div class="fake-visual"><span class="fake-emoji"></span><span class="fake-label">Accessories</span></div>
+          <div class="iso-upload-placeholder" style="background:rgba(0,0,0,0.25)">
+            
+          </div>
+          <div class="iso-hover-overlay"><button class="iso-order-btn" onclick="orderItem(event,'Luxury Handbag')">🛒 Add to Cart</button></div>
+          
+        </div>
+        <div class="iso-info"><span class="iso-cat-tag">Accessories</span><div class="iso-title">Smartwatch & Earbuds Accessory Set </div><div class="iso-desc">Complete kit with interchangeable bands, wireless earbuds, chargers, and a mini fan.</div></div>
+      </div>
+
+      <div class="iso-item" data-cat="accessories" data-ratio="square">
+        <div class="iso-img-wrap" onclick="triggerUpload(this)" style="background:linear-gradient(135deg,#e8d5b7,#c9a96e,#8b6914)">
+          <img src="assets/8.jpg" alt="" class="iso-img" style="display: block;">
+          <div class="fake-visual"><span class="fake-emoji"></span><span class="fake-label">Accessories</span></div>
+          <div class="iso-upload-placeholder" style="background:rgba(0,0,0,0.25)">
+            
+            
+          </div>
+          <div class="iso-hover-overlay"><button class="iso-order-btn" onclick="orderItem(event,'Designer Sunglasses')">🛒 Add to Cart</button></div>
+          
+        </div>
+        <div class="iso-info"><span class="iso-cat-tag">Accessories</span><div class="iso-title">Pink Chain-Style Bracelets with Stud Earrings </div><div class="iso-desc">Stylish matching bracelet pair with coordinating stud earrings.</div></div>
+      </div>
+
+
+
+      <div class="iso-item" data-cat="accessories" data-ratio="square">
+        <div class="iso-img-wrap" onclick="triggerUpload(this)" style="background:linear-gradient(135deg,#e8d5b7,#c9a96e,#8b6914)">
+          <img src="assets/22.jpg" alt="" class="iso-img" style="display: block;">
+          <div class="fake-visual"><span class="fake-emoji"></span><span class="fake-label">Accessories</span></div>
+          <div class="iso-upload-placeholder" style="background:rgba(0,0,0,0.25)">
+            
+            
+          </div>
+          <div class="iso-hover-overlay"><button class="iso-order-btn" onclick="orderItem(event,'Designer Sunglasses')">🛒 Add to Cart</button></div>
+          
+        </div>
+        <div class="iso-info"><span class="iso-cat-tag">Accessories</span><div class="iso-title">Luxury Wristwatch with Black Leather Strap & Cufflinks</div><div class="iso-desc">Elegant timepiece paired with classic cufflinks for a refined look.</div></div>
+      </div>
+
+
+
+
+
+      
+
+
+
+
+     
+
+
+
+
+
+      <div class="iso-item" data-cat="accessories" data-ratio="square">
+        <div class="iso-img-wrap" onclick="triggerUpload(this)" style="background:linear-gradient(135deg,#e8d5b7,#c9a96e,#8b6914)">
+          <img src="assets/25.jpg" alt="" class="iso-img" style="display: block;">
+          <div class="fake-visual"><span class="fake-emoji"></span><span class="fake-label">Accessories</span></div>
+          <div class="iso-upload-placeholder" style="background:rgba(0,0,0,0.25)">
+            
+            
+          </div>
+          <div class="iso-hover-overlay"><button class="iso-order-btn" onclick="orderItem(event,'Designer Sunglasses')">🛒 Add to Cart</button></div>
+          
+        </div>
+        <div class="iso-info"><span class="iso-cat-tag">Accessories</span><div class="iso-title">Gold Rings Set</div><div class="iso-desc">A collection of stylish gold rings worn together for a bold look.</div></div>
+      </div>
+
+      <!-- ELECTRONICS -->
+      <div class="iso-item" data-cat="electronics" data-ratio="wide">
+        <div class="iso-img-wrap" onclick="triggerUpload(this)" style="background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460,#533483)">
+          <img src="assets/10.jpg" alt="" class="iso-img" style="display: block;">
+          <div class="fake-visual"><span class="fake-emoji"></span><span class="fake-label">Electronics</span></div>
+          <div class="iso-upload-placeholder" style="background:rgba(0,0,0,0.3)">
+            
+          </div>
+          <div class="iso-hover-overlay"><button class="iso-order-btn" onclick="orderItem(event,'Smartphone')">🛒 Add to Cart</button></div>
+          
+        </div>
+        <div class="iso-info"><span class="iso-cat-tag">Electronics</span><div class="iso-title">White Handheld Misting Fan </div><div class="iso-desc">Compact cooling fan with built-in water mist spray.</div></div>
+      </div>
+
+      <div class="iso-item" data-cat="electronics" data-ratio="square">
+        <div class="iso-img-wrap" onclick="triggerUpload(this)" style="background:linear-gradient(145deg,#0d1b2a,#1b263b,#415a77,#778da9)">
+          <img src="assets/13.jpg" alt="" class="iso-img" style="display: block;">
+          <div class="fake-visual"><span class="fake-emoji">🎧</span><span class="fake-label">Electronics</span></div>
+          <div class="iso-upload-placeholder" style="background:rgba(0,0,0,0.3)">
+            
+          </div>
+          <div class="iso-hover-overlay"><button class="iso-order-btn" onclick="orderItem(event,'Wireless Headphones')">🛒 Add to Cart</button></div>
+          
+        </div>
+        <div class="iso-info"><span class="iso-cat-tag">Electronics</span><div class="iso-title">Countertop Blenders (White & Lavender) </div><div class="iso-desc">Modern kitchen blenders with transparent containers and digital controls.</div></div>
+      </div>
+
+      <div class="iso-item" data-cat="electronics" data-ratio="square">
+        <div class="iso-img-wrap" onclick="triggerUpload(this)" style="background:linear-gradient(135deg,#10002b,#3c096c,#7b2d8b,#e0aaff)">
+          <img src="assets/30.jpg" alt="" class="iso-img" style="display:block;">
+          <div class="fake-visual"><span class="fake-emoji"></span><span class="fake-label">Electronics</span></div>
+          <div class="iso-upload-placeholder" style="background:rgba(0,0,0,0.3)">
+            
+          </div>
+          <div class="iso-hover-overlay"><button class="iso-order-btn" onclick="orderItem(event,'Laptop')">🛒 Add to Cart</button></div>
+          
+        </div>
+        <div class="iso-info"><span class="iso-cat-tag">Electronics</span><div class="iso-title">Black Wireless Earbuds with Charging Case  </div><div class="iso-desc">Sleek earbuds in a digital-display case for portable listening.</div></div>
+      </div>
+
+
+
+
+      <div class="iso-item" data-cat="electronics" data-ratio="square">
+        <div class="iso-img-wrap" onclick="triggerUpload(this)" style="background:linear-gradient(135deg,#10002b,#3c096c,#7b2d8b,#e0aaff)">
+          <img src="assets/31.jpg" alt="" class="iso-img" style="display:block;">
+          <div class="fake-visual"><span class="fake-emoji"></span><span class="fake-label">Electronics</span></div>
+          <div class="iso-upload-placeholder" style="background:rgba(0,0,0,0.3)">
+           
+          </div>
+          <div class="iso-hover-overlay"><button class="iso-order-btn" onclick="orderItem(event,'Laptop')">🛒 Add to Cart</button></div>
+          
+        </div>
+        <div class="iso-info"><span class="iso-cat-tag">Electronics</span><div class="iso-title">Black Over-Ear Headphones  </div><div class="iso-desc">Premium over-ear headphones with noise cancellation and 30hr battery life.</div></div>
+      </div>
+
+
+      <div class="iso-item" data-cat="electronics" data-ratio="square">
+        <div class="iso-img-wrap" onclick="triggerUpload(this)" style="background:linear-gradient(135deg,#10002b,#3c096c,#7b2d8b,#e0aaff)">
+          <img src="assets/26.jpg" alt="" class="iso-img" style="display:block;">
+          <div class="fake-visual"><span class="fake-emoji"></span><span class="fake-label">Electronics</span></div>
+          <div class="iso-upload-placeholder" style="background:rgba(0,0,0,0.3)">
+            
+          </div>
+          <div class="iso-hover-overlay"><button class="iso-order-btn" onclick="orderItem(event,'Laptop')">🛒 Add to Cart</button></div>
+          
+        </div>
+        <div class="iso-info"><span class="iso-cat-tag">Electronics</span><div class="iso-title">Smartwatch with Colorful App Icons </div><div class="iso-desc">Colorful app icons on a sleek smartwatch. 14-day battery life.</div></div>
+      </div>
+
+      <!-- BEDROOM -->
+      <div class="iso-item" data-cat="bedroom" data-ratio="tall">
+        <div class="iso-img-wrap" onclick="triggerUpload(this)" style="background:linear-gradient(145deg,#f8edeb,#e8cfc8,#d4a59a,#c4637a)">
+          <img src="assets/29.jpg" alt="" class="iso-img" style="display: block;">
+          <div class="fake-visual"><span class="fake-emoji"></span><span class="fake-label">Bedroom</span></div>
+          <div class="iso-upload-placeholder" style="background:rgba(0,0,0,0.2)">
+           
+          </div>
+          <div class="iso-hover-overlay"><button class="iso-order-btn" onclick="orderItem(event,'Wardrobe')">🛒 Add to Cart</button></div>
+          
+        </div>
+        <div class="iso-info"><span class="iso-cat-tag">Bedroom</span><div class="iso-title">3-Door Wardrobe Cabinet</div><div class="iso-desc">Spacious wardrobe with sliding doors and mirror panels for storage.</div></div>
+      </div>
+
+      <div class="iso-item" data-cat="bedroom" data-ratio="square">
+        <div class="iso-img-wrap" onclick="triggerUpload(this)" style="background:linear-gradient(135deg,#fff3e0,#ffcc80,#ffa726,#e65100)">
+          <img src="assets/20.jpg" alt="" class="iso-img" style="display: block;">
+          <div class="fake-visual"><span class="fake-emoji"></span><span class="fake-label">Bedroom</span></div>
+          <div class="iso-upload-placeholder" style="background:rgba(0,0,0,0.2)">
+           
+          </div>
+          <div class="iso-hover-overlay"><button class="iso-order-btn" onclick="orderItem(event,'Shoe Rack')">🛒 Add to Cart</button></div>
+          
+        </div>
+        <div class="iso-info"><span class="iso-cat-tag">Bedroom</span><div class="iso-title">Wooden Shoe Rack Organizer</div><div class="iso-desc">Multi-tier shoe rack that neatly holds several pairs of footwear.</div></div>
+      </div>
+
+      <div class="iso-item" data-cat="bedroom" data-ratio="square">
+        <div class="iso-img-wrap" onclick="triggerUpload(this)" style="background:linear-gradient(135deg,#fce4ec,#f8bbd9,#e91e8c,#ad1457)">
+          <img src="assets/17.jpg" alt="" class="iso-img" style="display: block;">
+          <div class="fake-visual"><span class="fake-emoji"></span><span class="fake-label">Bedroom</span></div>
+          <div class="iso-upload-placeholder" style="background:rgba(0,0,0,0.2)">
+            
+          </div>
+          <div class="iso-hover-overlay"><button class="iso-order-btn" onclick="orderItem(event,'Wall Sticker Set')">🛒 Add to Cart</button></div>
+          
+        </div>
+        <div class="iso-info"><span class="iso-cat-tag">Bedroom</span><div class="iso-title">Wall Sticker Set</div><div class="iso-desc">Premium self-adhesive wall art. Floral, geometric &amp; quote designs.</div></div>
+      </div>
+
+
+
+
+
+      <div class="iso-item" data-cat="bedroom" data-ratio="square">
+        <div class="iso-img-wrap" onclick="triggerUpload(this)" style="background:linear-gradient(135deg,#fce4ec,#f8bbd9,#e91e8c,#ad1457)">
+          <img src="assets/24.jpg" alt="" class="iso-img" style="display: block;">
+          <div class="fake-visual"><span class="fake-emoji"></span><span class="fake-label">Bedroom</span></div>
+          <div class="iso-upload-placeholder" style="background:rgba(0,0,0,0.2)">
+            
+          </div>
+          <div class="iso-hover-overlay"><button class="iso-order-btn" onclick="orderItem(event,'Wall Sticker Set')">🛒 Add to Cart</button></div>
+          
+        </div>
+        <div class="iso-info"><span class="iso-cat-tag">Bedroom</span><div class="iso-title">Bedroom Vanity with Mirror & Makeup Items </div><div class="iso-desc">Elegant vanity setup with mirror and cosmetics for daily beauty routines.</div></div>
+      </div>
+
+
+
+
+      <div class="iso-item" data-cat="bedroom" data-ratio="square">
+        <div class="iso-img-wrap" onclick="triggerUpload(this)" style="background:linear-gradient(135deg,#fce4ec,#f8bbd9,#e91e8c,#ad1457)">
+          <img src="assets/18.jpg" alt="" class="iso-img" style="display: block;">
+          <div class="fake-visual"><span class="fake-emoji"></span><span class="fake-label">Bedroom</span></div>
+          <div class="iso-upload-placeholder" style="background:rgba(0,0,0,0.2)">
+            
+          </div>
+          <div class="iso-hover-overlay"><button class="iso-order-btn" onclick="orderItem(event,'Wall Sticker Set')">🛒 Add to Cart</button></div>
+          
+        </div>
+        <div class="iso-info"><span class="iso-cat-tag">Bedroom</span><div class="iso-title">Throw Pillows For Bedroom</div><div class="iso-desc">Set of 4 premium throw pillows in soft textures and neutral tones.</div></div>
+      </div>
+
+
+
+
+
+      
+
+
+
+      <!-- BEAUTY -->
+      <div class="iso-item" data-cat="beauty" data-ratio="tall">
+        <div class="iso-img-wrap" onclick="triggerUpload(this)" style="background:linear-gradient(145deg,#ffecd2,#fcb69f,#ff9a9e,#fecfef)">
+          <img src="assets/14.jpg" alt="" class="iso-img" style="display:block">
+          <div class="fake-visual"><span class="fake-emoji"></span><span class="fake-label">Beauty</span></div>
+          <div class="iso-upload-placeholder" style="background:rgba(0,0,0,0.2)">
+           
+          </div>
+          <div class="iso-hover-overlay"><button class="iso-order-btn" onclick="orderItem(event,'Lip &amp; Blush Kit')">🛒 Add to Cart</button></div>
+          
+        </div>
+        <div class="iso-info"><span class="iso-cat-tag">Beauty</span><div class="iso-title">Lip &amp; Blush Kit</div><div class="iso-desc">Matte liquid lipstick + pressed blush duo. 8 shade options.</div></div>
+      </div>
+
+      <div class="iso-item" data-cat="beauty" data-ratio="square">
+        <div class="iso-img-wrap" onclick="triggerUpload(this)" style="background:linear-gradient(135deg,#f3e5f5,#ce93d8,#9c27b0,#6a1b9a)">
+          <img src="assets/15.jpg" alt="" class="iso-img" style="display:block">
+          <div class="fake-visual"><span class="fake-emoji"></span><span class="fake-label">Beauty</span></div>
+          <div class="iso-upload-placeholder" style="background:rgba(0,0,0,0.2)">
+            
+          </div>
+          <div class="iso-hover-overlay"><button class="iso-order-btn" onclick="orderItem(event,'Skincare Bundle')">🛒 Add to Cart</button></div>
+          
+        </div>
+        <div class="iso-info"><span class="iso-cat-tag">Beauty</span><div class="iso-title">Red Nail Care Case Set </div><div class="iso-desc">Portable case containing nail tools and care essentials.</div></div>
+      </div>
+
+      <div class="iso-item" data-cat="beauty" data-ratio="square">
+        <div class="iso-img-wrap" onclick="triggerUpload(this)" style="background:linear-gradient(135deg,#fff9c4,#fff176,#fdd835,#f9a825)">
+          <img src="assets/16.jpg" alt="" class="iso-img" style="display:block">
+          <div class="fake-visual"><span class="fake-emoji"></span><span class="fake-label">Beauty</span></div>
+          <div class="iso-upload-placeholder" style="background:rgba(0,0,0,0.2)">
+           
+          </div>
+          <div class="iso-hover-overlay"><button class="iso-order-btn" onclick="orderItem(event,'Highlighter Palette')">🛒 Add to Cart</button></div>
+          
+        </div>
+        <div class="iso-info"><span class="iso-cat-tag">Beauty</span><div class="iso-title">Black Makeup Case Kit & Highlighter Palette</div><div class="iso-desc">6-pan glow palette. Multi-piece makeup kit including brushes, lipsticks, and palettes.</div></div>
+      </div>
+
+
+
+      <div class="iso-item" data-cat="beauty" data-ratio="square">
+        <div class="iso-img-wrap" onclick="triggerUpload(this)" style="background:linear-gradient(135deg,#fff9c4,#fff176,#fdd835,#f9a825)">
+          <img src="assets/19.jpg" alt="" class="iso-img" style="display:block">
+          <div class="fake-visual"><span class="fake-emoji"></span><span class="fake-label">Beauty</span></div>
+          <div class="iso-upload-placeholder" style="background:rgba(0,0,0,0.2)">
+            
+          </div>
+          <div class="iso-hover-overlay"><button class="iso-order-btn" onclick="orderItem(event,'Highlighter Palette')">🛒 Add to Cart</button></div>
+          
+        </div>
+        <div class="iso-info"><span class="iso-cat-tag">Beauty</span><div class="iso-title">LANEIGE Pink Skincare Set </div><div class="iso-desc">Branded skincare collection featuring creams and hydrating essentials.</div></div>
+      </div>
+
+
+
+
+      <div class="iso-item" data-cat="beauty" data-ratio="square">
+        <div class="iso-img-wrap" onclick="triggerUpload(this)" style="background:linear-gradient(135deg,#fff9c4,#fff176,#fdd835,#f9a825)">
+          <img src="assets/28.jpg" alt="" class="iso-img" style="display:block">
+          <div class="fake-visual"><span class="fake-emoji"></span><span class="fake-label">Beauty</span></div>
+          <div class="iso-upload-placeholder" style="background:rgba(0,0,0,0.2)">
+            
+          </div>
+          <div class="iso-hover-overlay"><button class="iso-order-btn" onclick="orderItem(event,'Highlighter Palette')">🛒 Add to Cart</button></div>
+          
+        </div>
+        <div class="iso-info"><span class="iso-cat-tag">Beauty</span><div class="iso-title">Fragrance Mist Collection</div><div class="iso-desc">A vibrant set of body sprays and perfumes offering fresh, everyday scents in colorful bottles.</div></div>
+      </div>
+
+
+      <div class="iso-item" data-cat="beauty" data-ratio="square">
+        <div class="iso-img-wrap" onclick="triggerUpload(this)" style="background:linear-gradient(135deg,#fff9c4,#fff176,#fdd835,#f9a825)">
+          <img src="assets/23.jpg" alt="" class="iso-img" style="display:block">
+          <div class="fake-visual"><span class="fake-emoji"></span><span class="fake-label">Beauty</span></div>
+          <div class="iso-upload-placeholder" style="background:rgba(0,0,0,0.2)">
+            
+          </div>
+          <div class="iso-hover-overlay"><button class="iso-order-btn" onclick="orderItem(event,'Highlighter Palette')">🛒 Add to Cart</button></div>
+          
+        </div>
+        <div class="iso-info"><span class="iso-cat-tag">Beauty</span><div class="iso-title">Glow Therapy Collection  </div><div class="iso-desc">Revitalizing masks and treatments designed to refresh and hydrate.</div></div>
+      </div>
+
+    </div><!-- /iso-grid -->
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="services-bg" id="services">
+  <div class="services-inner">
+    <div class="section-label" style="text-align:center">What We Offer</div>
+    <h2 class="section-title" style="text-align:center">Our <em>Services</em></h2>
+    <div class="ornament">✦ ✦ ✦</div>
+    <div class="services-cards-grid">
+      <div class="service-feature-card"><span class="service-icon">👗</span><h3>Fashion &amp; Furniture Imports</h3><p>We source and import high-quality fashion apparel, bedroom furniture, and home décor from leading global markets.</p><span class="service-tag">Import</span></div>
+      <div class="service-feature-card"><span class="service-icon">📱</span><h3>Electronics &amp; Gadget Supply</h3><p>Reliable supply of consumer electronics, smart gadgets, and tech accessories at wholesale and retail pricing.</p><span class="service-tag">Tech</span></div>
+      <div class="service-feature-card"><span class="service-icon">🏠</span><h3>Home Appliances Distribution</h3><p>Wide-range distribution of household appliances — from kitchen essentials to bedroom and living room items.</p><span class="service-tag">Home</span></div>
+      <div class="service-feature-card"><span class="service-icon">💎</span><h3>Wholesale &amp; Retail Supply</h3><p>Whether you need one item or a bulk order, we cater to both individual shoppers and business resellers.</p><span class="service-tag">Wholesale</span></div>
+      <div class="service-feature-card"><span class="service-icon">✨</span><h3>Beauty &amp; Cosmetics</h3><p>Premium international beauty brands and cosmetics sourced directly from top global suppliers.</p><span class="service-tag">Glam</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ORDER FORM -->
+<div class="order-section" id="order">
+  <div class="order-inner">
+    <div class="section-label">Get Started</div>
+    <h2 class="section-title">Place Your <em>Order</em></h2>
+    <p style="color:rgba(255,255,255,0.5); font-size:0.88rem; margin-top:-0.5rem;">Fill in your details and we'll get back to you promptly ✦</p>
+
+    <form class="order-form" id="orderForm" onsubmit="submitOrder(event)">
+
+      <div class="form-section">
+        <div class="form-section-title">👤 Customer Information</div>
+        <div class="form-row">
+          <div class="form-group"><label>Full Name *</label><input type="text" name="name" placeholder="e.g. Abena Mensah" required></div>
+          <div class="form-group"><label>Phone / WhatsApp *</label><input type="tel" name="phone" placeholder="+233 XX XXX XXXX" required></div>
+        </div>
+        <div class="form-group"><label>Email Address</label><input type="email" name="email" placeholder="your@email.com"></div>
+        <div class="form-group"><label>Delivery Address *</label><input type="text" name="location" placeholder="Street, Area, City / Town / Region" required></div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-section-title">🛍️ Product Selection</div>
+        <div class="form-group">
+          <label>Product Category *</label>
+          <select name="category" required>
+            <option value="" disabled selected>Select a category…</option>
+            <option>Unisex Dresses &amp; Fashion Apparel</option>
+            <option>Accessories (Men &amp; Women)</option>
+            <option>Home Appliances &amp; Electronics</option>
+            <option>Bedroom Essentials (Wardrobes, Shoe Racks, Stickers)</option>
+            <option>Beauty &amp; Cosmetics</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Product Name / Description *</label><input type="text" name="product" placeholder="e.g. Floral wrap dress, LED mirror, Matte lipstick set…" required></div>
+        <div class="form-row">
+          <div class="form-group"><label>Quantity *</label><input type="number" name="quantity" min="1" placeholder="1" required></div>
+          <div class="form-group"><label>Size / Colour (if applicable)</label><input type="text" name="sizecolor" placeholder="e.g. Size M, Rose Gold"></div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-section-title">📝 Additional Notes</div>
+        <div class="form-group"><label>Special Requests</label><textarea name="notes" placeholder="Preferred delivery time, packaging instructions, gift wrapping, urgent orders…"></textarea></div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-section-title">💳 Payment Method</div>
+        <div class="radio-group">
+          <div class="radio-option"><input type="radio" name="payment" id="pay-momo" value="Mobile Money (MoMo)" checked><label for="pay-momo">📲 Mobile Money</label></div>
+          <div class="radio-option"><input type="radio" name="payment" id="pay-bank" value="Bank Transfer"><label for="pay-bank">🏦 Bank Transfer</label></div>
+          <div class="radio-option"><input type="radio" name="payment" id="pay-cod" value="Cash on Delivery"><label for="pay-cod">💵 Cash on Delivery</label></div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-section-title">✨ How Did You Find Us?</div>
+        <div class="radio-group">
+          <div class="radio-option"><input type="radio" name="referral" id="ref-ig" value="Instagram (@Joycelove4387)" checked><label for="ref-ig">📸 Instagram</label></div>
+          <div class="radio-option"><input type="radio" name="referral" id="ref-snap" value="Snapchat (Joycelovenaanorkor)"><label for="ref-snap">👻 Snapchat</label></div>
+          <div class="radio-option"><input type="radio" name="referral" id="ref-tt" value="TikTok (@only.about.xoxo)"><label for="ref-tt">🎵 TikTok</label></div>
+          <div class="radio-option"><input type="radio" name="referral" id="ref-wa" value="WhatsApp"><label for="ref-wa">💬 WhatsApp</label></div>
+          <div class="radio-option"><input type="radio" name="referral" id="ref-ref" value="Referral / Friend"><label for="ref-ref">🤝 Referral</label></div>
+        </div>
+      </div>
+
+      <button type="submit" class="form-submit" style="margin-top:1.5rem;">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.558 4.137 1.535 5.873L0 24l6.293-1.512A11.947 11.947 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.007-1.37l-.359-.214-3.732.897.933-3.625-.234-.373A9.819 9.819 0 0 1 2.182 12c0-5.424 4.394-9.818 9.818-9.818 5.424 0 9.818 4.394 9.818 9.818 0 5.424-4.394 9.818-9.818 9.818z"/></svg>
+        Confirm My Order ✦
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- CONNECT -->
+<div class="connect-section" id="connect">
+  <div class="section-label">Find Us Online</div>
+  <h2 class="section-title">Connect <em>With Us</em></h2>
+  <p style="color:var(--mid); max-width:400px; margin:0.5rem auto 0; font-size:0.9rem; line-height:1.7;">Reach us on any of your favourite platforms — we'd love to hear from you!</p>
+  <div class="social-grid">
+    <a href="https://wa.me/233597579408" target="_blank" class="social-card sc-wa">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.558 4.137 1.535 5.873L0 24l6.293-1.512A11.947 11.947 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.007-1.37l-.359-.214-3.732.897.933-3.625-.234-.373A9.819 9.819 0 0 1 2.182 12c0-5.424 4.394-9.818 9.818-9.818 5.424 0 9.818 4.394 9.818 9.818 0 5.424-4.394 9.818-9.818 9.818z"/></svg>
+      <span>WhatsApp
+        <p>+233 59 757 9408</p>
+      </span>
+    </a>
+    <a href="https://instagram.com/Joycelove4387" target="_blank" class="social-card sc-ig">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      <span>Instagram 
+        <p> @Joycelove4387</p>
+      </span>
+    </a>
+    <a href="https://www.snapchat.com/add/Joycelovenaanorkor" target="_blank" class="social-card sc-snap">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.065 0c.307.002 2.316.063 3.632 1.526.827.924 1.1 2.098 1.036 3.236.261.088.545.127.818.09.294-.04.579-.015.848.073.558.182.86.639.828 1.103-.031.46-.38.895-.89 1.068-.041.014-.105.032-.186.052-.249.062-.604.151-.939.363-.224.139-.38.289-.454.444.062.039.133.079.217.117 1.018.47 2.595 1.197 2.595 2.753 0 .773-.39 1.42-.977 1.877-.558.437-1.276.708-2.076.888.022.079.039.157.052.235.065.377.015.73-.146.998-.198.334-.546.544-1.028.625a3.437 3.437 0 0 1-.476.033c-.403 0-.844-.064-1.302-.131-.547-.08-1.113-.162-1.567-.162-.454 0-1.02.082-1.567.162-.458.067-.899.131-1.302.131a3.43 3.43 0 0 1-.476-.033c-.482-.081-.83-.291-1.028-.625-.161-.268-.211-.621-.146-.998.013-.078.03-.156.052-.235-.8-.18-1.518-.451-2.076-.888-.587-.457-.977-1.104-.977-1.877 0-1.556 1.578-2.283 2.595-2.753.084-.038.155-.078.217-.117-.074-.155-.23-.305-.454-.444-.335-.212-.69-.301-.939-.363-.081-.02-.145-.038-.186-.052-.51-.173-.859-.608-.89-1.068-.032-.464.27-.921.828-1.103.269-.088.554-.113.848-.073.273.037.557-.002.818-.09C9.586 1.592 9.86.418 10.687-.506 11.749.002 12.065 0 12.065 0z"/></svg>
+      <span>Snapchat
+        <p>@Joycelovenaanorkor</p>
+      </span>
+    </a>
+    <a href="https://www.tiktok.com/@only.about.xoxo" target="_blank" class="social-card sc-tt">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.25 8.25 0 0 0 4.83 1.54V6.78a4.85 4.85 0 0 1-1.06-.09z"/></svg>
+      <span>TikTok
+        <p>@only.about.xoxo</p>
+      </span>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+
+  <!-- Main grid -->
+  <div class="footer-main">
+
+    <!-- Brand Column -->
+    <div class="footer-brand-col">
+      <div class="footer-brand">Naa's <em>Luxe</em> Glam</div>
+      <p class="footer-tagline">Your destination for global fashion, beauty, electronics, and lifestyle imports — delivered with care from across the world.</p>
+      <div class="footer-badges">
+        <span class="footer-badge">✦ Quality</span>
+        <span class="footer-badge">✦ Luxury</span>
+        <span class="footer-badge">✦ Affordability</span>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#products">Shop</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#order">Place an Order</a></li>
+        <li><a href="#connect">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-contact">
+        <li>
+          <span class="fc-icon">📲</span>
+          <a href="https://wa.me/233597579408" target="_blank">+233 59 757 9408</a>
+        </li>
+        <li>
+          <span class="fc-icon">📞</span>
+          <a href="tel:+233597579408">+233 59 757 9408</a>
+        </li>
+        <li>
+          <span class="fc-icon">📧</span>
+          <a href="mailto:naasimport@gmail.com">naasimport@gmail.com</a>
+        </li>
+        <li>
+          <span class="fc-icon">📍</span>
+          <span>Accra, Ghana — Global Imports Hub</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Social -->
+    <div>
+      <div class="footer-col-title">Follow Us</div>
+      <div class="footer-socials">
+        <a href="https://wa.me/233597579408" target="_blank" class="footer-social-link wa">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.558 4.137 1.535 5.873L0 24l6.293-1.512A11.947 11.947 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.007-1.37l-.359-.214-3.732.897.933-3.625-.234-.373A9.819 9.819 0 0 1 2.182 12c0-5.424 4.394-9.818 9.818-9.818 5.424 0 9.818 4.394 9.818 9.818 0 5.424-4.394 9.818-9.818 9.818z"/></svg>
+          WhatsApp Us
+        </a>
+        <a href="https://instagram.com/Joycelove4387" target="_blank" class="footer-social-link ig">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @Joycelove4387
+        </a>
+        <a href="https://www.snapchat.com/add/Joycelovenaanorkor" target="_blank" class="footer-social-link sc">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.065 0c.307.002 2.316.063 3.632 1.526.827.924 1.1 2.098 1.036 3.236.261.088.545.127.818.09.294-.04.579-.015.848.073.558.182.86.639.828 1.103-.031.46-.38.895-.89 1.068-.041.014-.105.032-.186.052-.249.062-.604.151-.939.363-.224.139-.38.289-.454.444.062.039.133.079.217.117 1.018.47 2.595 1.197 2.595 2.753 0 .773-.39 1.42-.977 1.877-.558.437-1.276.708-2.076.888.022.079.039.157.052.235.065.377.015.73-.146.998-.198.334-.546.544-1.028.625a3.437 3.437 0 0 1-.476.033c-.403 0-.844-.064-1.302-.131-.547-.08-1.113-.162-1.567-.162-.454 0-1.02.082-1.567.162-.458.067-.899.131-1.302.131a3.43 3.43 0 0 1-.476-.033c-.482-.081-.83-.291-1.028-.625-.161-.268-.211-.621-.146-.998.013-.078.03-.156.052-.235-.8-.18-1.518-.451-2.076-.888-.587-.457-.977-1.104-.977-1.877 0-1.556 1.578-2.283 2.595-2.753.084-.038.155-.078.217-.117-.074-.155-.23-.305-.454-.444-.335-.212-.69-.301-.939-.363-.081-.02-.145-.038-.186-.052-.51-.173-.859-.608-.89-1.068-.032-.464.27-.921.828-1.103.269-.088.554-.113.848-.073.273.037.557-.002.818-.09C9.586 1.592 9.86.418 10.687-.506 11.749.002 12.065 0 12.065 0z"/></svg>
+          @Joycelovenaanorkor
+        </a>
+        <a href="https://www.tiktok.com/@only.about.xoxo" target="_blank" class="footer-social-link tt">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.25 8.25 0 0 0 4.83 1.54V6.78a4.85 4.85 0 0 1-1.06-.09z"/></svg>
+          @only.about.xoxo
+        </a>
+      </div>
+    </div>
+
+  </div><!-- /footer-main -->
+
+  <hr class="footer-divider-line">
+
+  <!-- ✦ Kay Tech Studios Credit Section -->
+  <div class="footer-dev-section">
+    <!-- Logo mark -->
+    <div class="footer-dev-logo">⚡</div>
+
+    <!-- Info -->
+    <div class="footer-dev-info">
+      <div class="footer-dev-built">Designed &amp; Developed by</div>
+      <div class="footer-dev-name">Kay Tech Studios</div>
+      <div class="footer-dev-motto">Serving with compassion, leading with purpose.</div>
+    </div>
+
+    <!-- Links -->
+    <div class="footer-dev-links">
+      <a href="https://kaytechstudios.netlify.app" target="_blank" class="footer-dev-link primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        kaytechstudios.netlify.app
+      </a>
+      <a href="mailto:kennethamoah530@gmail.com" class="footer-dev-link secondary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        kennethamoah530@gmail.com
+      </a>
+      <a href="tel:+233534329262" class="footer-dev-link secondary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +233 534 329 262
+      </a>
+    </div>
+  </div>
+
+  <hr class="footer-dev-divider">
+
+  <!-- Bottom bar -->
+  <div class="footer-bottom">
+    <div class="footer-bottom-left">
+      © 2025 Naa's Luxe Glam – Global Imports Hub. All rights reserved.
+      <span>·</span> Accra, Ghana
+    </div>
+    <div class="footer-dev" style="font-size:0.72rem;color:rgba(255,255,255,0.18);display:flex;align-items:center;gap:0.4rem;flex-wrap:wrap;justify-content:flex-end;">
+      Built with ♥ in Ghana
+    </div>
+  </div>
+
+</footer>
+
+<!-- CART OVERLAY & DRAWER -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer-header">
+    <div class="cart-drawer-title">Your <span>Cart</span> ✦</div>
+    <button class="cart-close-btn" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items-list" id="cartItemsList">
+    <!-- items injected by JS -->
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-summary-row"><span>Items</span><span id="cartItemCount">0</span></div>
+    <div class="cart-summary-row total"><span>Total Items</span><span class="val" id="cartTotalItems">0</span></div>
+    <button class="cart-checkout-btn" onclick="proceedToCheckout()">
+      <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.558 4.137 1.535 5.873L0 24l6.293-1.512A11.947 11.947 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.007-1.37l-.359-.214-3.732.897.933-3.625-.234-.373A9.819 9.819 0 0 1 2.182 12c0-5.424 4.394-9.818 9.818-9.818 5.424 0 9.818 4.394 9.818 9.818 0 5.424-4.394 9.818-9.818 9.818z"/></svg>
+      Proceed to Order ✦
+    </button>
+    <button class="cart-clear-btn" onclick="clearCart()">🗑 Clear cart</button>
+  </div>
+</div>
+
+<!-- CART TOAST -->
+<div class="cart-toast" id="cartToast"></div>
+
+<!-- SUCCESS MODAL -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal-box">
+    <div class="modal-icon">💌</div>
+    <h3>Order Received!</h3>
+    <p>Thank you! Your order details have been sent directly to our WhatsApp. We'll review your request and contact you very soon.</p>
+    <button class="modal-close" onclick="closeModal()">Wonderful, Thanks!</button>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // ── Nav helpers ───────────────────────────────────────────────────────────
+  const hamburger   = document.getElementById('hamburger');
+  const mobileDrawer = document.getElementById('mobileDrawer');
+  const navOverlay  = document.getElementById('navOverlay');
+  const navCloseBtn = document.getElementById('navCloseBtn');
+
+  function getNavHeight() {
+    return document.querySelector('nav').offsetHeight;
+  }
+
+  function openNav() {
+    mobileDrawer.classList.add('open');
+    navOverlay.classList.add('active');
+    hamburger.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeNav() {
+    mobileDrawer.classList.remove('open');
+    navOverlay.classList.remove('active');
+    hamburger.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function scrollToSection(sectionId) {
+    const target = document.querySelector(sectionId);
+    if (!target) return;
+    const top = target.getBoundingClientRect().top + window.pageYOffset - getNavHeight() - 8;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
+
+  // Hamburger toggle
+  hamburger.addEventListener('click', () => {
+    mobileDrawer.classList.contains('open') ? closeNav() : openNav();
+  });
+
+  // ✕ close button
+  navCloseBtn.addEventListener('click', closeNav);
+
+  // Backdrop click closes drawer
+  navOverlay.addEventListener('click', closeNav);
+
+  // ── DRAWER LINKS: attach directly to each <a> ────────────────────────────
+  document.querySelectorAll('.drawer-link').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      var targetId = this.getAttribute('href');
+      closeNav();
+      setTimeout(function() {
+        scrollToSection(targetId);
+      }, 400);
+    });
+  });
+
+  // ── Desktop nav links smooth scroll ──────────────────────────────────────
+  document.querySelectorAll('.nav-links-desktop a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      scrollToSection(this.getAttribute('href'));
+    });
+  });
+
+  // ── Smooth scroll for non-nav anchor links (hero CTAs, etc.) ─────────────
+  document.querySelectorAll('a[href^="#"]:not(.drawer-link):not(.nav-links-desktop a)').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        scrollToSection(href);
+      }
+    });
+  });
+
+  // ── Backend URL ───────────────────────────────────────────────────────────
+  const BACKEND_URL = 'https://naas-luxe-backend.onrender.com';
+
+  // ── Order form ────────────────────────────────────────────────────────────
+  async function submitOrder(e) {
+    e.preventDefault();
+    const f   = e.target;
+    const btn = f.querySelector('.form-submit');
+
+    const name      = f.name.value.trim();
+    const phone     = f.phone.value.trim();
+    const email     = f.email.value.trim();
+    const location  = f.location.value.trim();
+    const category  = f.category.value;
+    const product   = f.product.value.trim();
+    const quantity  = f.quantity.value.trim();
+    const sizecolor = f.sizecolor.value.trim();
+    const notes     = f.notes.value.trim();
+    const payment   = f.payment.value;
+    const referral  = f.referral.value;
+
+    btn.disabled  = true;
+    btn.innerHTML = `<span style="display:inline-block;width:18px;height:18px;border:2px solid rgba(255,255,255,0.4);border-top-color:#fff;border-radius:50%;animation:spin 0.7s linear infinite"></span> Sending…`;
+
+    try {
+      const res = await fetch(`${BACKEND_URL}/send-order`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, phone, email, location, category, product, quantity, sizecolor, notes, payment, referral }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        document.getElementById('successModal').classList.add('active');
+        f.reset();
+      } else {
+        showError(btn, data.error || 'Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      showError(btn, 'Could not reach the server. Please try again shortly.');
+      console.error('Order error:', err);
+    }
+  }
+
+  function showError(btn, msg) {
+    btn.disabled  = false;
+    btn.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.558 4.137 1.535 5.873L0 24l6.293-1.512A11.947 11.947 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.007-1.37l-.359-.214-3.732.897.933-3.625-.234-.373A9.819 9.819 0 0 1 2.182 12c0-5.424 4.394-9.818 9.818-9.818 5.424 0 9.818 4.394 9.818 9.818 0 5.424-4.394 9.818-9.818 9.818z"/></svg> Confirm My Order ✦`;
+    let errEl = document.getElementById('orderError');
+    if (!errEl) {
+      errEl = document.createElement('p');
+      errEl.id = 'orderError';
+      errEl.style.cssText = 'color:#ff8fa3;font-size:0.85rem;text-align:center;margin-top:0.5rem;';
+      btn.parentNode.insertBefore(errEl, btn.nextSibling);
+    }
+    errEl.textContent = '⚠️ ' + msg;
+    setTimeout(() => { if (errEl) errEl.remove(); }, 5000);
+  }
+
+  function closeModal() { document.getElementById('successModal').classList.remove('active'); }
+  document.getElementById('successModal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+
+  // ── Isotope filter ────────────────────────────────────────────────────────
+  document.querySelectorAll('.iso-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.iso-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.iso-item').forEach(item => {
+        if (filter === 'all' || item.dataset.cat === filter) {
+          item.classList.remove('hidden');
+          item.style.animation = 'fadeUp 0.35s ease both';
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    });
+  });
+
+  // ── Image upload per card ─────────────────────────────────────────────────
+  function triggerUpload(imgWrap) { imgWrap.querySelector('.iso-file-input').click(); }
+  function attachUploadHandler(input) {
+    input.addEventListener('change', function() {
+      if (!this.files || !this.files[0]) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const wrap = this.closest('.iso-img-wrap');
+        const img  = wrap.querySelector('.iso-img');
+        img.src = e.target.result;
+        img.style.display = 'block';
+        wrap.classList.add('has-image');
+        const ph = wrap.querySelector('.iso-upload-placeholder');
+        if (ph) ph.style.display = 'none';
+      };
+      reader.readAsDataURL(this.files[0]);
+    });
+  }
+  document.querySelectorAll('.iso-file-input').forEach(attachUploadHandler);
+
+  // ══════════════════════════════════════════════════════
+  //  🛒  CART SYSTEM
+  // ══════════════════════════════════════════════════════
+  let cart = JSON.parse(localStorage.getItem('nlg_cart') || '[]');
+
+  function saveCart() {
+    localStorage.setItem('nlg_cart', JSON.stringify(cart));
+  }
+
+  function getTotalQty() {
+    return cart.reduce((sum, item) => sum + item.qty, 0);
+  }
+
+  function updateBadge() {
+    const badge = document.getElementById('cartBadge');
+    const total = getTotalQty();
+    badge.textContent = total;
+    if (total > 0) badge.classList.add('visible');
+    else badge.classList.remove('visible');
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('cartToast');
+    t.innerHTML = msg;
+    t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer = setTimeout(() => t.classList.remove('show'), 2800);
+  }
+
+  function openCart() {
+    document.getElementById('cartDrawer').classList.add('open');
+    document.getElementById('cartOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+    renderCart();
+  }
+
+  function closeCart() {
+    document.getElementById('cartDrawer').classList.remove('open');
+    document.getElementById('cartOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function renderCart() {
+    const list = document.getElementById('cartItemsList');
+    const footer = document.getElementById('cartFooter');
+    if (cart.length === 0) {
+      list.innerHTML = `
+        <div class="cart-empty">
+          <span class="cart-empty-icon">🛍️</span>
+          <strong style="color:var(--dark);font-family:'Cormorant Garamond',serif;font-size:1.2rem;">Your cart is empty</strong>
+          <p style="margin-top:0.5rem;font-size:0.85rem;">Browse our collection and add items you love!</p>
+          <button onclick="closeCart(); scrollToSection('#products')" style="margin-top:1.2rem;padding:0.6rem 1.5rem;background:linear-gradient(135deg,var(--deep-rose),#b85a71);color:#fff;border:none;border-radius:50px;cursor:pointer;font-size:0.85rem;font-weight:500;">Browse Products ✦</button>
+        </div>`;
+      footer.style.display = 'none';
+      return;
+    }
+    footer.style.display = 'block';
+    list.innerHTML = cart.map((item, idx) => `
+      <div class="cart-item">
+        <div class="cart-item-img" style="background:${item.bg}">
+          ${item.imgSrc
+            ? `<img src="${item.imgSrc}" style="width:100%;height:100%;object-fit:cover;border-radius:11px;">`
+            : `<span style="font-size:1.8rem">${item.emoji || '🛍️'}</span>`}
+        </div>
+        <div class="cart-item-info">
+          <div class="cart-item-name" title="${item.name}">${item.name}</div>
+          <div class="cart-item-cat">${item.cat}</div>
+          <div class="cart-qty-row">
+            <button class="cart-qty-btn" onclick="changeQty(${idx}, -1)">−</button>
+            <span class="cart-qty-val">${item.qty}</span>
+            <button class="cart-qty-btn" onclick="changeQty(${idx}, 1)">+</button>
+          </div>
+        </div>
+        <button class="cart-item-remove" onclick="removeItem(${idx})" title="Remove">✕</button>
+      </div>`).join('');
+    const total = getTotalQty();
+    document.getElementById('cartItemCount').textContent = cart.length + ' line' + (cart.length > 1 ? 's' : '');
+    document.getElementById('cartTotalItems').textContent = total + ' item' + (total > 1 ? 's' : '');
+  }
+
+  function changeQty(idx, delta) {
+    cart[idx].qty = Math.max(1, cart[idx].qty + delta);
+    saveCart(); updateBadge(); renderCart();
+  }
+
+  function removeItem(idx) {
+    cart.splice(idx, 1);
+    saveCart(); updateBadge(); renderCart();
+    showToast('✕ Item removed from cart');
+  }
+
+  function clearCart() {
+    if (!confirm('Remove all items from your cart?')) return;
+    cart = []; saveCart(); updateBadge(); renderCart();
+  }
+
+  function proceedToCheckout() {
+    closeCart();
+    // Build product description from cart
+    const productSummary = cart.map(item => `${item.qty}x ${item.name}`).join(', ');
+    const firstCat = cart[0] ? cart[0].cat : '';
+    // Scroll to order section
+    setTimeout(() => {
+      scrollToSection('#order');
+      setTimeout(() => {
+        // Fill product field
+        const productInput = document.querySelector('[name="product"]');
+        if (productInput) {
+          productInput.value = productSummary;
+          productInput.dispatchEvent(new Event('input'));
+          productInput.style.borderColor = 'var(--rose)';
+          setTimeout(() => productInput.style.borderColor = '', 2000);
+        }
+        // Fill quantity
+        const qtyInput = document.querySelector('[name="quantity"]');
+        if (qtyInput) qtyInput.value = getTotalQty();
+        // Select category matching first item
+        const catMap = {
+          'Fashion': 'Unisex Dresses & Fashion Apparel',
+          'Accessories': 'Accessories (Men & Women)',
+          'Electronics': 'Home Appliances & Electronics',
+          'Bedroom': 'Bedroom Essentials (Wardrobes, Shoe Racks, Stickers)',
+          'Beauty': 'Beauty & Cosmetics',
+        };
+        const catSelect = document.querySelector('[name="category"]');
+        if (catSelect && catMap[firstCat]) {
+          for (let i = 0; i < catSelect.options.length; i++) {
+            if (catSelect.options[i].text.includes(catMap[firstCat].split(' ')[0])) {
+              catSelect.selectedIndex = i; break;
+            }
+          }
+        }
+        showToast('✦ Cart loaded into order form — fill your details & submit!');
+      }, 500);
+    }, 350);
+  }
+
+  // ── Add to cart from gallery card ────────────────────────────────────────
+  function orderItem(e, productNameFallback) {
+    e.stopPropagation();
+    const btn = e.currentTarget;
+    const card = btn.closest('.iso-item');
+    if (!card) return;
+
+    const titleEl = card.querySelector('.iso-title');
+    const catEl   = card.querySelector('.iso-cat-tag');
+    const imgEl   = card.querySelector('.iso-img');
+    const imgWrap = card.querySelector('.iso-img-wrap');
+    const emojiEl = card.querySelector('.fake-emoji');
+
+    const name = (titleEl ? titleEl.textContent.trim() : null) || productNameFallback;
+    const cat  = catEl ? catEl.textContent.trim() : 'Product';
+    const imgSrc = (imgEl && imgEl.style.display !== 'none') ? imgEl.src : null;
+    const bg   = imgWrap ? imgWrap.style.background : 'linear-gradient(145deg,#fff5f7,#fdf6f0)';
+    const emoji = emojiEl ? emojiEl.textContent : '🛍️';
+
+    // Check if already in cart
+    const existing = cart.find(i => i.name === name);
+    if (existing) {
+      existing.qty++;
+      showToast(`✦ Added another <strong>${name.length > 28 ? name.slice(0,28)+'…' : name}</strong>`);
+    } else {
+      cart.push({ name, cat, qty: 1, imgSrc, bg, emoji });
+      showToast(`🛒 <strong>${name.length > 28 ? name.slice(0,28)+'…' : name}</strong> added to cart`);
+    }
+    saveCart();
+    updateBadge();
+
+    // Button feedback
+    btn.classList.add('added');
+    const orig = btn.innerHTML;
+    btn.innerHTML = '✓ Added!';
+    setTimeout(() => { btn.innerHTML = orig; btn.classList.remove('added'); }, 1400);
+  }
+
+  // Init badge on load
+  updateBadge();
+
+  // ── End Cart System ───────────────────────────────────────────────────────
+</script>
+</body>
+</html>
