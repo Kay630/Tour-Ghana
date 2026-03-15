@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/jpg" href="assets/logo.png">
+<title>Upcoming Group Tours – Ghana Tour</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  :root {
+    --orange:      #CE1126; /* Ghana Red   */
+    --teal:        #006B3F; /* Ghana Green */
+    --ghana-gold:  #FCD116; /* Ghana Gold  */
+    --dark: #1a1a1a;
+    --text: #333;
+    --muted: #666;
+    --light: #f8f8f8;
+    --white: #fff;
+    --border: #e5e5e5;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Jost', sans-serif; color: var(--text); background: var(--white); }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 1000;
+    background: var(--white);
+    border-bottom: 4px solid transparent;
+    border-image: linear-gradient(90deg, #CE1126 33.3%, #FCD116 33.3% 66.6%, #006B3F 66.6%) 1;
+    padding: 0 4%;
+    display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    height: 72px;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 11px; text-decoration: none; flex-shrink: 0; }
+  .nav-logo-icon { width: 42px; height: 42px; }
+  
+  .nav-logo-img {
+  height: 60px;       /* Adjust size */
+  width: 60px;        /* Same as height for circle */
+  object-fit: cover;  /* Ensures the logo fills the circle */
+  border-radius: 50%; /* Makes it circular */
+  border: 3px solid #003366; /* Optional: adds a blue border */
+  background-color: #fff;    /* Optional: white background */
+  padding: 5px;       /* Space inside the circle */
+  display: block;
+}
+
+.nav-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 700; line-height: 1; letter-spacing: -0.3px; }
+  .logo-ghana {
+  font-size: 28px;
+  font-weight: 700;
+  color: #003366;   /* Deep blue */
+  text-transform: uppercase;
+  display: block;   /* Forces WI-ANN onto its own line */
+  align-items: center; /* Vertically centers the text */
+}
+
+.logo-tour {
+  font-size: 20px;
+  font-weight: 600;
+  color: #FF4DA6;   /* Vibrant pink */
+  text-transform: uppercase;
+  display: block;   /* Places TRAVEL & TOUR below */
+  margin-top: 4px;  /* Small spacing between lines */
+}
+
+  .nav-links { display: flex; gap: 28px; list-style: none; margin: 0 auto; }
+  .nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--text); text-decoration: none; letter-spacing: 0.3px; transition: color 0.2s; cursor: pointer; }
+  .nav-links a:hover, .nav-links a.active { color: var(--orange); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { width: 22px; height: 2px; background: var(--dark); border-radius: 2px; }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .nav-links.open {
+      display: flex; flex-direction: column; position: absolute;
+      top: 72px; left: 0; right: 0; background: white;
+      padding: 20px 5%; border-bottom: 1px solid var(--border);
+      gap: 18px; z-index: 999;
+    }
+  }
+
+  /* ── PAGE HERO ── */
+  .page-hero {
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.65) 100%), url('assets/30.jpeg');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 50vh; min-height: 320px;
+    display: flex; align-items: center; justify-content: center; text-align: center; color: white;
+  }
+  .page-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; }
+  .page-hero p { font-size: 1rem; margin-top: 12px; opacity: 0.9; }
+
+  /* ── FILTER BAR ── */
+  .filter-bar {
+    background: var(--light); border-bottom: 1px solid var(--border);
+    padding: 18px 8%; display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+  }
+  .filter-bar span { font-size: 0.8rem; font-weight: 600; color: var(--muted); letter-spacing: 0.5px; margin-right: 4px; }
+  .filter-btn {
+    padding: 8px 18px; border-radius: 24px; border: 1.5px solid var(--border);
+    background: white; font-family: 'Jost', sans-serif; font-size: 0.8rem; font-weight: 500;
+    cursor: pointer; transition: all 0.2s; color: var(--text);
+  }
+  .filter-btn:hover, .filter-btn.active { background: var(--teal); color: white; border-color: var(--teal); }
+
+  /* ── TOURS GRID ── */
+  .tours-section { padding: 60px 8%; }
+  .tours-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  @media (max-width: 1024px) { .tours-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .tours-grid { grid-template-columns: 1fr; } }
+
+  .tour-card {
+    border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+    background: white; transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .tour-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+  .tour-card-img { position: relative; height: 220px; overflow: hidden; }
+  .tour-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+  .tour-card:hover .tour-card-img img { transform: scale(1.06); }
+  .tour-badge {
+    position: absolute; top: 14px; left: 14px;
+    background: var(--orange); color: white;
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 1px;
+    text-transform: uppercase; padding: 4px 10px; border-radius: 4px;
+  }
+  .tour-badge.sold-out { background: #999; }
+  .tour-badge.limited { background: #e05c2a; }
+
+  .tour-body { padding: 22px; }
+  .tour-meta { display: flex; gap: 14px; margin-bottom: 10px; flex-wrap: wrap; }
+  .tour-meta span { font-size: 0.72rem; color: var(--muted); display: flex; align-items: center; gap: 4px; }
+  .tour-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; line-height: 1.3; }
+  .tour-desc { font-size: 0.855rem; color: var(--muted); line-height: 1.75; margin-bottom: 16px; }
+  .tour-includes { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+  .tour-tag { font-size: 0.68rem; background: var(--light); color: var(--muted); padding: 4px 10px; border-radius: 20px; border: 1px solid var(--border); }
+  .tour-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px solid var(--border); }
+  .tour-price { font-family: 'Cormorant Garamond', serif; }
+  .tour-price .from { font-size: 0.72rem; color: var(--muted); display: block; }
+  .tour-price .amount { font-size: 1.6rem; font-weight: 700; color: var(--dark); line-height: 1; }
+  .tour-price .per { font-size: 0.72rem; color: var(--muted); }
+  .btn-book {
+    background: var(--orange); color: white; border: none; border-radius: 6px;
+    padding: 11px 22px; font-family: 'Jost', sans-serif; font-size: 0.8rem;
+    font-weight: 600; letter-spacing: 0.5px; cursor: pointer; transition: background 0.2s, transform 0.2s;
+  }
+  .btn-book:hover { background: #a50e1e; transform: translateY(-1px); }
+  .btn-book:disabled { background: #ccc; cursor: not-allowed; transform: none; }
+
+  /* ── BOOKING MODALS ── */
+  .overlay {
+    position: fixed; inset: 0; background: rgba(26,8,0,.8); z-index: 2000;
+    display: none; align-items: center; justify-content: center; padding: 1rem;
+    backdrop-filter: blur(4px);
+  }
+  .overlay.open { display: flex; }
+  .bm-modal {
+    background: var(--white); overflow: hidden;
+    width: 100%; max-width: 900px; max-height: 90vh; overflow-y: auto;
+    animation: bm-slideUp .4s ease;
+    border-top: 5px solid transparent;
+    border-image: repeating-linear-gradient(90deg,
+      #CE1126 0, #CE1126 20%, #FCD116 20%, #FCD116 40%,
+      #1a1a1a 40%, #1a1a1a 60%, #006B3F 60%, #006B3F 80%,
+      #FCD116 80%, #FCD116 100%
+    ) 1;
+  }
+  @keyframes bm-slideUp { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes bm-popIn   { from { transform:scale(.5); opacity:0; } to { transform:scale(1); opacity:1; } }
+  @keyframes bm-spin    { to { transform:rotate(360deg); } }
+  .bm-spinner { width:24px; height:24px; border:3px solid rgba(255,255,255,.3); border-top-color:#fff; border-radius:50%; animation:bm-spin .8s linear infinite; }
+  .modal-close {
+    position: absolute; top: 1rem; right: 1rem; width: 40px; height: 40px;
+    background: rgba(0,0,0,.5); border: none; color: #fff;
+    font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    z-index: 10; transition: background .2s;
+  }
+  .modal-close:hover { background: #CE1126; }
+  /* Booking form */
+  .booking-modal { padding: 2.5rem; }
+  .booking-modal-kente { height: 8px; display: flex; margin-bottom: 2rem; }
+  .booking-modal-kente span { flex: 1; }
+  .booking-modal-kente span:nth-child(5n+1) { background: #CE1126; }
+  .booking-modal-kente span:nth-child(5n+2) { background: #FCD116; }
+  .booking-modal-kente span:nth-child(5n+3) { background: #1a1a1a; }
+  .booking-modal-kente span:nth-child(5n+4) { background: #006B3F; }
+  .booking-modal-kente span:nth-child(5n+5) { background: #FCD116; }
+  .booking-modal h2 { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:700; margin-bottom:.3rem; color:#1a1a1a; }
+  .booking-modal p.bm-sub { color:#666; margin-bottom:2rem; font-size:.88rem; }
+  .bm-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .bm-form-group { margin-bottom: 1.2rem; }
+  .bm-form-group label { display:block; font-size:.72rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#666; margin-bottom:.4rem; }
+  .bm-form-group input, .bm-form-group select, .bm-form-group textarea {
+    width:100%; padding:.85rem 1rem; border:2px solid #e5e5e5;
+    font-family:'Jost',sans-serif; font-size:.9rem; color:#1a1a1a;
+    background:#fff; outline:none; transition:border-color .2s; border-radius:0;
+  }
+  .bm-form-group input:focus, .bm-form-group select:focus, .bm-form-group textarea:focus { border-color:#006B3F; }
+  .bm-form-group input.bm-error, .bm-form-group select.bm-error { border-color:#CE1126; }
+  .bm-error-msg { color:#CE1126; font-size:.76rem; margin-top:.3rem; display:none; }
+  .bm-error-msg.show { display:block; }
+  .booking-summary { background:#FFFBEA; border:1px solid #e5e5e5; padding:1.25rem; margin-bottom:1.5rem; }
+  .booking-summary h4 { font-weight:700; margin-bottom:.8rem; color:#1a1a1a; font-size:.9rem; letter-spacing:1px; text-transform:uppercase; }
+  .bm-sum-row { display:flex; justify-content:space-between; font-size:.86rem; color:#666; margin-bottom:.4rem; }
+  .bm-sum-row.total { color:#1a1a1a; font-weight:700; font-size:1rem; border-top:1px solid #e5e5e5; padding-top:.6rem; margin-top:.4rem; }
+  .bm-pay-btn { width:100%; padding:1.1rem; background:#006B3F; color:#fff; border:none; font-family:'Jost',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; transition:background .2s,transform .15s; display:flex; align-items:center; justify-content:center; gap:.6rem; }
+  .bm-pay-btn:hover { background:#14512B; transform:translateY(-1px); }
+  .bm-secure-note { text-align:center; font-size:.76rem; color:#666; margin-top:.8rem; }
+  .bm-secure-note i { color:#006B3F; margin-right:.3rem; }
+  /* Payment modal */
+  .payment-modal { padding: 2.5rem; text-align: center; }
+  .payment-modal h2 { font-family:'Cormorant Garamond',serif; font-size:1.7rem; font-weight:700; margin-bottom:.5rem; color:#1a1a1a; }
+  .payment-modal p { color:#666; margin-bottom:2rem; font-size:.9rem; }
+  .payment-methods { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:2rem; }
+  .pay-method { border:2px solid #e5e5e5; padding:1.25rem; cursor:pointer; transition:all .2s; text-align:center; }
+  .pay-method:hover, .pay-method.selected { border-color:#006B3F; background:rgba(0,107,63,.06); }
+  .pay-method i { font-size:1.8rem; margin-bottom:.5rem; color:#006B3F; display:block; }
+  .pay-method span { display:block; font-weight:600; font-size:.9rem; }
+  .pay-method small { color:#666; font-size:.76rem; }
+  .card-form { text-align:left; }
+  .card-input-wrap { position:relative; }
+  .card-input-wrap i { position:absolute; right:1rem; top:50%; transform:translateY(-50%); color:#666; }
+  /* Success modal */
+  .success-modal { padding:3rem 2.5rem; text-align:center; }
+  .success-icon { width:80px; height:80px; background:linear-gradient(135deg,#006B3F,#00854E); display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem; font-size:2rem; color:#fff; animation:bm-popIn .5s ease; clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%); }
+  .success-modal h2 { font-family:'Cormorant Garamond',serif; font-size:2.2rem; font-weight:700; margin-bottom:.5rem; color:#1a1a1a; }
+  .success-modal p { color:#666; margin-bottom:1.5rem; }
+  .booking-ref { background:#FFFBEA; border:1px solid #e5e5e5; padding:1.25rem; display:inline-block; margin-bottom:2rem; }
+  .booking-ref label { font-size:.72rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#666; display:block; margin-bottom:.3rem; }
+  .booking-ref span { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:700; color:#006B3F; }
+  .success-details { text-align:left; background:#FFFBEA; border:1px solid #e5e5e5; padding:1.25rem; margin-bottom:2rem; }
+  .sdet-row { display:flex; justify-content:space-between; font-size:.86rem; margin-bottom:.6rem; }
+  .sdet-row:last-child { margin-bottom:0; }
+  .sdet-row span:first-child { color:#666; }
+  .sdet-row span:last-child { font-weight:600; color:#1a1a1a; }
+  @media (max-width: 768px) {
+    .overlay { align-items: flex-end; padding: 0; }
+    .bm-modal { max-height: 92vh; border-radius: 16px 16px 0 0; }
+    .booking-modal { padding: 1.5rem; }
+    .bm-form-row { grid-template-columns: 1fr; }
+    .payment-methods { grid-template-columns: 1fr; }
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--white); border-top: 1px solid var(--border);
+    padding: 56px 8% 28px;
+  }
+  .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+  
+  .footer-logo-img{
+    height: 60px;       /* Adjust size */
+  width: 60px;        /* Same as height for circle */
+  object-fit: cover;  /* Ensures the logo fills the circle */
+  border-radius: 50%; /* Makes it circular */
+  border: 3px solid #003366; /* Optional: adds a blue border */
+  background-color: #fff;    /* Optional: white background */
+  padding: 5px;       /* Space inside the circle */
+  display: block;
+
+  }
+  
+  
+  
+  .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; text-decoration: none; color: inherit; outline: none; -webkit-user-select: none; user-select: none; }
+  .footer-logo:focus { outline: none; }
+  .footer-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 700; line-height: 1.15; letter-spacing: -0.2px; }
+  .social-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.social-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-icon svg {
+  width: 28px;
+  height: 28px;
+  transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+.social-icon:hover svg {
+  transform: scale(1.2);
+  fill: #FF4DA6;
+}
+
+.social-text {
+  font-size: 14px;
+  color: #003366;
+  font-weight: 600;
+}
+  .footer-col h4 { font-size: 1rem; font-weight: 600; margin-bottom: 18px; color: var(--dark); }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a { color: var(--muted); font-size: 0.9rem; text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--orange); }
+  .contact-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 0.875rem; color: var(--muted); }
+  .contact-icon { color: var(--teal); flex-shrink: 0; }
+  .footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; text-align: center; }
+  .footer-bottom-copy { font-size: 0.82rem; color: var(--muted); margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .footer-bottom-copy .sep { opacity: 0.35; }
+  .footer-bottom-links { display: flex; gap: 20px; justify-content: center; margin-bottom: 18px; }
+  .footer-bottom-links a { color: var(--muted); font-size: 0.82rem; text-decoration: none; transition: color 0.2s; }
+  .footer-bottom-links a:hover { color: var(--orange); }
+  .footer-dev-bar { border-top: 1px solid var(--border); padding-top: 16px; padding-bottom: 4px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .footer-dev-byline { font-size: 0.75rem; color: var(--muted); }
+  .footer-dev-byline strong { color: var(--dark); font-weight: 600; font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; }
+  .footer-dev-byline .dev-dot { color: var(--teal); margin: 0 6px; }
+  .footer-dev-contacts { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; justify-content: center; }
+  .footer-dev-contacts a { display: inline-flex; align-items: center; gap: 5px; font-size: 0.76rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .footer-dev-contacts a:hover { color: var(--orange); }
+  .footer-dev-contacts a svg { opacity: 0.55; }
+  .footer-dev-motto-text { font-size: 0.72rem; color: var(--muted); font-style: italic; opacity: 0.7; }
+  @media (max-width: 768px) {
+    .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+    .footer-bottom-copy { flex-direction: column; gap: 6px; }
+    .footer-dev-contacts { gap: 12px; flex-direction: column; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <!-- Ghana flag-striped circle with Black Star -->
+    <img src="assets/logo.png" alt="Ghana Tour Logo" class="nav-logo-img">
+    <span class="nav-logo-text">
+      <span class="logo-ghana">WI- ANN</span>  <span class="logo-tour">TRAVEL & TOUR</span>
+    </span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="tours.html" class="active">UPCOMING GROUP TOURS</a></li>
+    <li><a href="index.html#faq">FAQ</a></li>
+    <li><a href="index.html#contact">CONTACT</a></li>
+    <li><a href="index.html#about">ABOUT US</a></li>
+    <li><a href="gallery.html">GALLERY</a></li>
+    <li><a href="blog.html">BLOG</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div>
+    <h1>Upcoming Group Tours</h1>
+    <p>Join a community of travellers exploring the heart of Ghana</p>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <span>FILTER:</span>
+  <button class="filter-btn active" onclick="filterTours('all', this)">All Tours</button>
+  <button class="filter-btn" onclick="filterTours('cultural', this)">Cultural</button>
+  <button class="filter-btn" onclick="filterTours('adventure', this)">Adventure</button>
+  <button class="filter-btn" onclick="filterTours('luxury', this)">Luxury</button>
+  <button class="filter-btn" onclick="filterTours('historical', this)">Historical</button>
+</div>
+
+<!-- TOURS GRID -->
+<section class="tours-section">
+  <div class="tours-grid" id="toursGrid">
+
+    <!-- Tour 1 -->
+    <div class="tour-card" data-category="cultural">
+      <div class="tour-card-img">
+        <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=700&q=80" alt="Accra City & Culture Tour">
+        <span class="tour-badge">Cultural</span>
+      </div>
+      <div class="tour-body">
+        <div class="tour-meta">
+          <span>📅 April 12–16, 2025</span>
+          <span>⏱ 5 Days</span>
+          <span>👥 Max 12</span>
+        </div>
+        <div class="tour-title">Accra City & Culture Tour</div>
+        <div class="tour-desc">Dive deep into Accra's vibrant culture — from Makola Market to the National Museum, Jamestown Lighthouse, and a traditional Kente weaving demonstration.</div>
+        <div class="tour-includes">
+          <span class="tour-tag">🏨 Hotel Included</span>
+          <span class="tour-tag">🍽 Meals Included</span>
+          <span class="tour-tag">🚌 Transport</span>
+          <span class="tour-tag">🎧 Tour Guide</span>
+        </div>
+        <div class="tour-footer">
+          <div class="tour-price">
+            <span class="from">FROM</span>
+            <span class="amount">$799</span>
+            <span class="per">/ person</span>
+          </div>
+          <button class="btn-book" onclick="openBookingModal('accra')">BOOK NOW</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tour 2 -->
+    <div class="tour-card" data-category="historical">
+      <div class="tour-card-img">
+        <img src="https://images.unsplash.com/photo-1489493887464-892be6d1daae?w=700&q=80" alt="Cape Coast & Slave Route">
+        <span class="tour-badge limited">Limited Spots</span>
+      </div>
+      <div class="tour-body">
+        <div class="tour-meta">
+          <span>📅 April 20–24, 2025</span>
+          <span>⏱ 5 Days</span>
+          <span>👥 Max 10</span>
+        </div>
+        <div class="tour-title">Cape Coast & Slave Route</div>
+        <div class="tour-desc">A deeply moving journey through Cape Coast Castle, Elmina, and the Door of No Return — honouring history while celebrating Ghana's resilience and beauty.</div>
+        <div class="tour-includes">
+          <span class="tour-tag">🏨 Hotel Included</span>
+          <span class="tour-tag">🍽 Meals Included</span>
+          <span class="tour-tag">🚌 Transport</span>
+          <span class="tour-tag">🎧 Tour Guide</span>
+        </div>
+        <div class="tour-footer">
+          <div class="tour-price">
+            <span class="from">FROM</span>
+            <span class="amount">$899</span>
+            <span class="per">/ person</span>
+          </div>
+          <button class="btn-book" onclick="openBookingModal('cape-coast')">BOOK NOW</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tour 3 -->
+    <div class="tour-card" data-category="adventure">
+      <div class="tour-card-img">
+        <img src="https://images.unsplash.com/photo-1615729947596-a598e5de0ab3?w=700&q=80" alt="Volta Region Adventure">
+        <span class="tour-badge">Adventure</span>
+      </div>
+      <div class="tour-body">
+        <div class="tour-meta">
+          <span>📅 May 3–8, 2025</span>
+          <span>⏱ 6 Days</span>
+          <span>👥 Max 14</span>
+        </div>
+        <div class="tour-title">Volta Region Adventure</div>
+        <div class="tour-desc">Trek to the majestic Wli Waterfalls, kayak on Lake Volta, and hike the Agumatsa Wildlife Sanctuary in West Africa's most scenic region.</div>
+        <div class="tour-includes">
+          <span class="tour-tag">🏕 Lodge Included</span>
+          <span class="tour-tag">🍽 Meals Included</span>
+          <span class="tour-tag">🚌 Transport</span>
+          <span class="tour-tag">🧗 Activities</span>
+        </div>
+        <div class="tour-footer">
+          <div class="tour-price">
+            <span class="from">FROM</span>
+            <span class="amount">$950</span>
+            <span class="per">/ person</span>
+          </div>
+          <button class="btn-book" onclick="openBookingModal('volta')">BOOK NOW</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tour 4 -->
+    <div class="tour-card" data-category="luxury">
+      <div class="tour-card-img">
+        <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=700&q=80" alt="Luxury Ghana Circuit">
+        <span class="tour-badge">Luxury</span>
+      </div>
+      <div class="tour-body">
+        <div class="tour-meta">
+          <span>📅 May 15–24, 2025</span>
+          <span>⏱ 10 Days</span>
+          <span>👥 Max 8</span>
+        </div>
+        <div class="tour-title">Luxury Ghana Circuit</div>
+        <div class="tour-desc">Experience Ghana in the finest style — 5-star lodges, private beach dinners, VIP museum access, exclusive Ashanti palace visits, and a chartered boat on Lake Bosomtwe.</div>
+        <div class="tour-includes">
+          <span class="tour-tag">🌟 5-Star Hotel</span>
+          <span class="tour-tag">🍽 Fine Dining</span>
+          <span class="tour-tag">🚐 Private Driver</span>
+          <span class="tour-tag">🎧 Expert Guide</span>
+        </div>
+        <div class="tour-footer">
+          <div class="tour-price">
+            <span class="from">FROM</span>
+            <span class="amount">$2,499</span>
+            <span class="per">/ person</span>
+          </div>
+          <button class="btn-book" onclick="openBookingModal('luxury')">BOOK NOW</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tour 5 -->
+    <div class="tour-card" data-category="cultural">
+      <div class="tour-card-img">
+        <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=700&q=80" alt="Kumasi & Ashanti Kingdom">
+        <span class="tour-badge">Cultural</span>
+      </div>
+      <div class="tour-body">
+        <div class="tour-meta">
+          <span>📅 June 7–11, 2025</span>
+          <span>⏱ 5 Days</span>
+          <span>👥 Max 12</span>
+        </div>
+        <div class="tour-title">Kumasi & Ashanti Kingdom</div>
+        <div class="tour-desc">Visit Manhyia Palace, Kejetia Market, and the Kente weaving villages of Bonwire. Experience the vibrant Ashanti culture and cuisine firsthand.</div>
+        <div class="tour-includes">
+          <span class="tour-tag">🏨 Hotel Included</span>
+          <span class="tour-tag">🍽 Meals Included</span>
+          <span class="tour-tag">🚌 Transport</span>
+          <span class="tour-tag">🎧 Tour Guide</span>
+        </div>
+        <div class="tour-footer">
+          <div class="tour-price">
+            <span class="from">FROM</span>
+            <span class="amount">$849</span>
+            <span class="per">/ person</span>
+          </div>
+          <button class="btn-book" onclick="openBookingModal('kumasi')">BOOK NOW</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tour 6 -->
+    <div class="tour-card" data-category="adventure">
+      <div class="tour-card-img">
+        <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=700&q=80" alt="Mole National Park Safari">
+        <span class="tour-badge sold-out">Sold Out</span>
+      </div>
+      <div class="tour-body">
+        <div class="tour-meta">
+          <span>📅 June 20–25, 2025</span>
+          <span>⏱ 6 Days</span>
+          <span>👥 Max 10</span>
+        </div>
+        <div class="tour-title">Mole National Park Safari</div>
+        <div class="tour-desc">Ghana's largest wildlife reserve is home to elephants, kobs, warthogs, and over 300 bird species. An unforgettable African safari experience awaits.</div>
+        <div class="tour-includes">
+          <span class="tour-tag">🏕 Lodge Included</span>
+          <span class="tour-tag">🍽 Meals Included</span>
+          <span class="tour-tag">🦒 Safari Drives</span>
+          <span class="tour-tag">🎧 Ranger Guide</span>
+        </div>
+        <div class="tour-footer">
+          <div class="tour-price">
+            <span class="from">FROM</span>
+            <span class="amount">$1,099</span>
+            <span class="per">/ person</span>
+          </div>
+          <button class="btn-book" disabled>SOLD OUT</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ BOOKING MODAL ══ -->
+<div class="overlay" id="bookingOverlay">
+  <div class="bm-modal" style="max-width:600px;position:relative">
+    <button class="modal-close" onclick="closeBmModal('bookingOverlay')">✕</button>
+    <div class="booking-modal">
+      <div class="booking-modal-kente">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <h2>Book Your Adventure 🌍</h2>
+      <p class="bm-sub" id="bookingTourName">Akwaaba! Complete your booking below.</p>
+      <form id="bookingForm" onsubmit="submitBooking(event)">
+        <div class="bm-form-row">
+          <div class="bm-form-group">
+            <label>First Name</label>
+            <input type="text" id="bFirstName" placeholder="Kwame" required>
+            <div class="bm-error-msg" id="errFirstName">Please enter your first name.</div>
+          </div>
+          <div class="bm-form-group">
+            <label>Last Name</label>
+            <input type="text" id="bLastName" placeholder="Mensah" required>
+            <div class="bm-error-msg" id="errLastName">Please enter your last name.</div>
+          </div>
+        </div>
+        <div class="bm-form-group">
+          <label>Email Address</label>
+          <input type="email" id="bEmail" placeholder="kwame@email.com" required>
+          <div class="bm-error-msg" id="errEmail">Please enter a valid email.</div>
+        </div>
+        <div class="bm-form-group">
+          <label>Phone Number</label>
+          <input type="tel" id="bPhone" placeholder="+233 XX XXX XXXX" required>
+          <div class="bm-error-msg" id="errPhone">Please enter your phone number.</div>
+        </div>
+        <div class="bm-form-row">
+          <div class="bm-form-group">
+            <label>Select Tour</label>
+            <select id="bTour" required onchange="updateSummary()">
+              <option value="">-- Choose a Tour --</option>
+              <option value="accra">Accra City &amp; Culture Tour ($799/person)</option>
+              <option value="cape-coast">Cape Coast &amp; Slave Route ($899/person)</option>
+              <option value="volta">Volta Region Adventure ($950/person)</option>
+              <option value="kumasi">Kumasi &amp; Ashanti Kingdom ($849/person)</option>
+              <option value="mole">Mole National Park Safari ($1,099/person)</option>
+              <option value="luxury">Luxury Ghana Circuit ($2,499/person)</option>
+            </select>
+            <div class="bm-error-msg" id="errTour">Please select a tour.</div>
+          </div>
+          <div class="bm-form-group">
+            <label>Travel Date</label>
+            <input type="date" id="bDate" required>
+            <div class="bm-error-msg" id="errDate">Please select a date.</div>
+          </div>
+        </div>
+        <div class="bm-form-group">
+          <label>Number of Participants</label>
+          <select id="bParticipants" onchange="updateSummary()">
+            <option value="1">1 Person</option>
+            <option value="2">2 People</option>
+            <option value="3">3 People</option>
+            <option value="4">4 People</option>
+            <option value="5">5 People</option>
+            <option value="6">6+ People (Contact us)</option>
+          </select>
+        </div>
+        <div class="bm-form-group">
+          <label>Special Requests (Optional)</label>
+          <textarea id="bRequests" rows="2" placeholder="Dietary requirements, accessibility needs, etc."></textarea>
+        </div>
+        <div class="booking-summary">
+          <h4>★ Booking Summary</h4>
+          <div class="bm-sum-row"><span>Tour</span><span id="sumTour">—</span></div>
+          <div class="bm-sum-row"><span>Date</span><span id="sumDate">—</span></div>
+          <div class="bm-sum-row"><span>Participants</span><span id="sumPax">—</span></div>
+          <div class="bm-sum-row total"><span>Estimated Total</span><span id="sumTotal">—</span></div>
+        </div>
+        <button type="submit" class="bm-pay-btn">
+          <i class="fas fa-lock"></i> Proceed to Payment
+        </button>
+        <p class="bm-secure-note"><i class="fas fa-shield-alt"></i> Secured by SSL. We accept card &amp; Mobile Money.</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PAYMENT MODAL ══ -->
+<div class="overlay" id="paymentOverlay">
+  <div class="bm-modal" style="max-width:540px;position:relative">
+    <button class="modal-close" onclick="closeBmModal('paymentOverlay')">✕</button>
+    <div class="payment-modal">
+      <h2>Complete Payment</h2>
+      <p>Total: <strong id="payTotal" style="color:#CE1126;font-size:1.15rem"></strong></p>
+      <div class="payment-methods">
+        <div class="pay-method selected" id="pm-card" onclick="selectPayMethod('card')">
+          <i class="fas fa-credit-card"></i>
+          <span>Card Payment</span>
+          <small>Visa / Mastercard</small>
+        </div>
+        <div class="pay-method" id="pm-momo" onclick="selectPayMethod('momo')">
+          <i class="fas fa-mobile-alt"></i>
+          <span>Mobile Money</span>
+          <small>MTN / Vodafone / AirtelTigo</small>
+        </div>
+      </div>
+      <div id="cardPayForm" class="card-form">
+        <div class="bm-form-group">
+          <label>Cardholder Name</label>
+          <input type="text" id="cardName" placeholder="As on card">
+        </div>
+        <div class="bm-form-group">
+          <label>Card Number</label>
+          <div class="card-input-wrap">
+            <input type="text" id="cardNum" placeholder="1234 5678 9012 3456" maxlength="19" oninput="bmFormatCard(this)">
+            <i class="fas fa-credit-card"></i>
+          </div>
+        </div>
+        <div class="bm-form-row">
+          <div class="bm-form-group">
+            <label>Expiry</label>
+            <input type="text" id="cardExp" placeholder="MM/YY" maxlength="5" oninput="bmFormatExpiry(this)">
+          </div>
+          <div class="bm-form-group">
+            <label>CVV</label>
+            <input type="password" id="cardCVV" placeholder="•••" maxlength="3">
+          </div>
+        </div>
+      </div>
+      <div id="momoForm" style="display:none" class="card-form">
+        <div class="bm-form-group">
+          <label>Network</label>
+          <select id="momoNetwork">
+            <option>MTN Mobile Money</option>
+            <option>Vodafone Cash</option>
+            <option>AirtelTigo Money</option>
+          </select>
+        </div>
+        <div class="bm-form-group">
+          <label>Mobile Number</label>
+          <input type="tel" id="momoNum" placeholder="024 XXX XXXX">
+        </div>
+        <p style="font-size:.82rem;color:#666;background:#FFFBEA;padding:.75rem;text-align:left;margin-top:.5rem;border:1px solid #e5e5e5">
+          <i class="fas fa-info-circle" style="color:#006B3F"></i> You will receive a prompt on your phone to confirm this payment.
+        </p>
+      </div>
+      <button class="bm-pay-btn" style="margin-top:1.5rem" onclick="processPayment()" id="processPayBtn">
+        <i class="fas fa-lock"></i> <span id="payBtnText">Pay Now</span>
+      </button>
+      <p class="bm-secure-note"><i class="fas fa-shield-alt"></i> 256-bit SSL encrypted. Fully protected.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SUCCESS MODAL ══ -->
+<div class="overlay" id="successOverlay">
+  <div class="bm-modal" style="max-width:500px;position:relative">
+    <div class="success-modal">
+      <div class="success-icon"><i class="fas fa-check"></i></div>
+      <h2>Akwaaba! Request Received 🎉</h2>
+      <p>Thank you for booking with Ghana Tour! Our team will contact you within <strong>24 hours</strong> to confirm your adventure. <em>Medaase!</em></p>
+      <div class="booking-ref">
+        <label>Your Booking Reference</label>
+        <span id="bookingRef">GT-000000</span>
+      </div>
+      <div class="success-details" id="successDetails"></div>
+      <button class="btn-book" onclick="closeBmModal('successOverlay')" style="width:100%;justify-content:center;display:flex;align-items:center;gap:.5rem;">
+        ✓ Close
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-grid">
+    <div>
+      <a href="#" class="footer-logo">
+        <img src="assets/logo.png" alt="Wi-Ann Travel & Tour Logo" class="footer-logo-img">
+        <span class="footer-logo-text">
+          <span style="font-size:20px; font-weight:900; color:#003366; text-transform:uppercase; display:block;">Wi-Ann</span>
+          <span style="font-size:15px; font-weight:600; color:#FF4DA6; text-transform:uppercase; display:block;">Travel & Tour</span>
+        </span>
+      </a>
+      <p style="font-size:0.875rem;color:var(--muted);line-height:1.7;margin-bottom:8px;">Licensed Ghanaian tour operator since 2010. Rooted in the Akwaaba tradition — where every visitor is family.</p>
+      <div class="social-icons">
+  <!-- Facebook -->
+  <div class="social-row">
+    <a href="#" class="social-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#003366" viewBox="0 0 24 24">
+        <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.988H7.898v-2.89h2.54V9.797c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562v1.875h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+      </svg>
+    </a>
+    <span class="social-text">@Wi-Ann Travel & Tour</span>
+  </div>
+
+  <!-- YouTube -->
+  <div class="social-row">
+    <a href="#" class="social-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#FF0000" viewBox="0 0 24 24">
+        <path d="M23.498 6.186a2.994 2.994 0 0 0-2.112-2.12C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.386.566a2.994 2.994 0 0 0-2.112 2.12C0 8.072 0 12 0 12s0 3.928.502 5.814a2.994 2.994 0 0 0 2.112 2.12C4.5 20.5 12 20.5 12 20.5s7.5 0 9.386-.566a2.994 2.994 0 0 0 2.112-2.12C24 15.928 24 12 24 12s0-3.928-.502-5.814zM9.75 15.568V8.432L15.818 12 9.75 15.568z"/>
+      </svg>
+    </a>
+    <span class="social-text">@Wi-Ann Travel & Tour</span>
+  </div>
+
+  <!-- Instagram -->
+  <div class="social-row">
+    <a href="#" class="social-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#C13584" viewBox="0 0 24 24">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.34 3.608 1.316.975.975 1.254 2.242 1.316 3.608.058 1.266.07 1.646.07 4.843s-.012 3.577-.07 4.843c-.062 1.366-.34 2.633-1.316 3.608-.975.975-2.242 1.254-3.608 1.316-1.266.058-1.646.07-4.843.07s-3.577-.012-4.843-.07c-1.366-.062-2.633-.34-3.608-1.316-.975-.975-1.254-2.242-1.316-3.608C2.175 15.577 2.163 15.197 2.163 12s.012-3.577.07-4.843c.062-1.366.34-2.633 1.316-3.608.975-.975 2.242-1.254 3.608-1.316C8.423 2.175 8.803 2.163 12 2.163zm0 1.684c-3.17 0-3.548.012-4.795.07-1.042.048-1.61.218-1.985.393-.5.243-.857.534-1.243.92-.386.386-.677.743-.92 1.243-.175.375-.345.943-.393 1.985-.058 1.247-.07 1.625-.07 4.795s.012 3.548.07 4.795c.048 1.042.218 1.61.393 1.985.243.5.534.857.92 1.243.386.386.743.677 1.243.92.375.175.943.345 1.985.393 1.247.058 1.625.07 4.795.07s3.548-.012 4.795-.07c1.042-.048 1.61-.218 1.985-.393.5-.243.857-.534 1.243-.92.386-.386.677-.743.92-1.243.175-.375.345-.943.393-1.985.058-1.247.07-1.625.07-4.795s-.012-3.548-.07-4.795c-.048-1.042-.218-1.61-.393-1.985-.243-.5-.534-.857-.92-1.243-.386-.386-.743-.677-1.243-.92-.375-.175-.943-.345-1.985-.393-1.247-.058-1.625-.07-4.795-.07zm0 3.905a4.932 4.932 0 1 0 0 9.864 4.932 4.932 0 0 0 0-9.864zm0 8.149a3.217 3.217 0 1 1 0-6.434 3.217 3.217 0 0 1 0 6.434zm4.984-8.91a1.148 1.148 0 1 1-2.296 0 1.148 1.148 0 0 1 2.296 0z"/>
+      </svg>
+    </a>
+    <span class="social-text">@Wi-Ann Travel & Tour</span>
+  </div>
+
+  <!-- LinkedIn -->
+  <div class="social-row">
+    <a href="#" class="social-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#0077B5" viewBox="0 0 24 24">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.327-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.049c.476-.9 1.637-1.852 3.37-1.852 3.604 0 4.268 2.372 4.268 5.455v6.288zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM6.814 20.452H3.861V9h2.953v11.452zM22.225 0H1.771C.792 0 0 .771 0 1.771v20.454C0 23.229.792 24 1.771 24h20.454C23.229 24 24 23.229 24 22.225V1.771C24 .771 23.229 0 22.225 0z"/>
+      </svg>
+    </a>
+    <span class="social-text">@Wi-Ann Travel & Tour</span>
+  </div>
+</div>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#destinations">Destinations</a></li>
+        <li><a href="tours.html">Upcoming Group Tours</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="index.html#about">About</a></li>
+      </ul>
+    </div>
+        <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="contact-item">
+        <span class="contact-icon">✉</span>
+        <a href="mailto:info@ghanatour.com" style="color:var(--muted);text-decoration:none;">info@ghanatour.com</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">📞</span>
+        +233 053 941 8949  /  +233 020 565 2929
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">📍</span>
+        Accra, Ghana
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">🕐</span>
+        Mon–Sat, 8am–6pm GMT
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-copy">
+      <span>© 2025 Ghana Tour. Akwaaba. All rights reserved.</span>
+      <span class="sep">|</span>
+      <span>Made with ❤️ in Ghana 🇬🇭</span>
+    </div>
+    <div class="footer-bottom-links">
+      <a href="#">Terms</a>
+      <a href="#">Privacy</a>
+    </div>
+    <div class="footer-dev-bar">
+      <div class="footer-dev-byline">
+        Designed &amp; Developed by <span class="dev-dot">⚡</span> <strong>Kay Tech Studios</strong>
+      </div>
+            <div class="footer-dev-contacts">
+        <a href="https://kaytechstudios.netlify.app" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          kaytechstudios.netlify.app
+        </a>
+        <a href="mailto:kaytechstudios@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          kaytechstudios@gmail.com
+        </a>
+        <a href="tel:+233534329262">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +233 534 329 262
+        </a>
+      </div>
+      <div class="footer-dev-motto-text">Serving with compassion, leading with purpose.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── FILTER ──
+  function filterTours(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.tour-card').forEach(card => {
+      card.style.display = (cat === 'all' || card.dataset.category === cat) ? 'block' : 'none';
+    });
+  }
+
+  // ── BOOKING SYSTEM ──
+  const tourPrices = {
+    'accra':      { name: 'Accra City & Culture Tour',  price: 799  },
+    'cape-coast': { name: 'Cape Coast & Slave Route',   price: 899  },
+    'volta':      { name: 'Volta Region Adventure',     price: 950  },
+    'luxury':     { name: 'Luxury Ghana Circuit',       price: 2499 },
+    'kumasi':     { name: 'Kumasi & Ashanti Kingdom',   price: 849  },
+    'mole':       { name: 'Mole National Park Safari',  price: 1099 },
+  };
+
+  let bmBookingData = {};
+  let bmSelectedPayMethod = 'card';
+
+  function openBookingModal(tourKey) {
+    const today = new Date(); today.setDate(today.getDate() + 1);
+    document.getElementById('bDate').min = today.toISOString().split('T')[0];
+    if (tourKey) {
+      document.getElementById('bTour').value = tourKey;
+      const t = tourPrices[tourKey];
+      if (t) document.getElementById('bookingTourName').textContent = 'Booking: ' + t.name;
+    }
+    updateSummary();
+    document.getElementById('bookingOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeBmModal(id) {
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function updateSummary() {
+    const tourId = document.getElementById('bTour').value;
+    const tour = tourPrices[tourId];
+    const pax = parseInt(document.getElementById('bParticipants').value) || 1;
+    const date = document.getElementById('bDate').value;
+    document.getElementById('sumTour').textContent = tour ? tour.name : '—';
+    document.getElementById('sumDate').textContent = date ? new Date(date).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}) : '—';
+    document.getElementById('sumPax').textContent = pax + ' person' + (pax > 1 ? 's' : '');
+    const fmtUSD = n => '$' + n.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
+    document.getElementById('sumTotal').textContent = (tour && tour.price) ? fmtUSD(tour.price * pax) : '—';
+  }
+
+  function submitBooking(e) {
+    e.preventDefault();
+    let valid = true;
+    const fields = [
+      { id: 'bFirstName', err: 'errFirstName', check: v => v.trim().length > 1 },
+      { id: 'bLastName',  err: 'errLastName',  check: v => v.trim().length > 1 },
+      { id: 'bEmail',     err: 'errEmail',     check: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
+      { id: 'bPhone',     err: 'errPhone',     check: v => v.trim().length > 6 },
+      { id: 'bTour',      err: 'errTour',      check: v => v !== '' },
+      { id: 'bDate',      err: 'errDate',      check: v => v !== '' },
+    ];
+    fields.forEach(f => {
+      const el = document.getElementById(f.id);
+      const err = document.getElementById(f.err);
+      if (!f.check(el.value)) { el.classList.add('bm-error'); err.classList.add('show'); valid = false; }
+      else { el.classList.remove('bm-error'); err.classList.remove('show'); }
+    });
+    if (!valid) return;
+    const tour = tourPrices[document.getElementById('bTour').value];
+    const pax = parseInt(document.getElementById('bParticipants').value) || 1;
+    const fmtUSD = n => '$' + n.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
+    const totalStr = fmtUSD(tour.price * pax);
+    bmBookingData = {
+      firstName: document.getElementById('bFirstName').value,
+      lastName:  document.getElementById('bLastName').value,
+      email:     document.getElementById('bEmail').value,
+      phone:     document.getElementById('bPhone').value,
+      tourName:  tour.name, tourPrice: tour.price,
+      date:      document.getElementById('bDate').value,
+      participants: pax,
+      requests:  document.getElementById('bRequests').value,
+      total:     totalStr,
+    };
+    closeBmModal('bookingOverlay');
+    document.getElementById('payTotal').textContent = totalStr;
+    document.getElementById('payBtnText').textContent = 'Pay ' + totalStr;
+    document.getElementById('paymentOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function selectPayMethod(m) {
+    bmSelectedPayMethod = m;
+    document.querySelectorAll('.pay-method').forEach(el => el.classList.remove('selected'));
+    document.getElementById('pm-' + m).classList.add('selected');
+    document.getElementById('cardPayForm').style.display = m === 'card' ? 'block' : 'none';
+    document.getElementById('momoForm').style.display = m === 'momo' ? 'block' : 'none';
+  }
+
+  function processPayment() {
+    const btn = document.getElementById('processPayBtn');
+    btn.innerHTML = '<div class="bm-spinner"></div> Processing...';
+    btn.disabled = true;
+    setTimeout(() => {
+      const ref = 'GT-' + Math.random().toString(36).substr(2, 6).toUpperCase();
+      bmBookingData.payMethod = bmSelectedPayMethod === 'card' ? 'Card Payment' : 'Mobile Money';
+      closeBmModal('paymentOverlay');
+      document.getElementById('bookingRef').textContent = ref;
+      document.getElementById('successDetails').innerHTML = `
+        <div class="sdet-row"><span>Tour</span><span>${bmBookingData.tourName}</span></div>
+        <div class="sdet-row"><span>Date</span><span>${new Date(bmBookingData.date).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})}</span></div>
+        <div class="sdet-row"><span>Participants</span><span>${bmBookingData.participants} person${bmBookingData.participants > 1 ? 's' : ''}</span></div>
+        <div class="sdet-row"><span>Payment</span><span>${bmBookingData.payMethod}</span></div>
+        <div class="sdet-row"><span>Total</span><span style="color:#006B3F;font-weight:700">${bmBookingData.total}</span></div>
+        <div class="sdet-row"><span>Confirmation to</span><span>${bmBookingData.email}</span></div>
+      `;
+      document.getElementById('successOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      btn.innerHTML = '<i class="fas fa-lock"></i> <span id="payBtnText">Pay Now</span>';
+      btn.disabled = false;
+    }, 2500);
+  }
+
+  function bmFormatCard(el) { let v = el.value.replace(/\D/g,'').substring(0,16); el.value = v.replace(/(.{4})/g,'$1 ').trim(); }
+  function bmFormatExpiry(el) { let v = el.value.replace(/\D/g,'').substr
